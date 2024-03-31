@@ -3,8 +3,16 @@
     
 }
 
-#login {
-    justify-self: end;
+header {
+    background-color: #005A00;
+}
+
+header a {
+    color: white !important;
+}
+
+main {
+    margin: 3% 10%;
 }
 
 
