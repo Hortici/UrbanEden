@@ -25,5 +25,8 @@ article {
     padding: 10px;
     width: 70%;
 }
-
+.container{
+    max-width: 500px;
+    margin: 0 auto;
+}
 
