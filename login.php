@@ -21,7 +21,9 @@
             require_once "connect.php";
 
             $sql = "SELECT * FROM korisnici WHERE email = '$Email'";
-            $rezultat = mysqli_query($connected, $sql);
+            if (isset($connected)) {
+                $rezultat = mysqli_query($connected, $sql);
+            }
             $korisnik = mysqli_fetch_array($rezultat, MYSQLI_ASSOC);
             if($korisnik){
                 if(password_verify($Lozinka, $korisnik["password"])){

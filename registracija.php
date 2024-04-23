@@ -39,7 +39,9 @@
 
                 require_once "connect.php";
                 $sql = "SELECT * FROM korisnici WHERE email = '$Email'";
-                $rezultat = mysqli_query($connected, $sql);
+                if (isset($connected)) {
+                    $rezultat = mysqli_query($connected, $sql);
+                }
                 $rowCount = mysqli_num_rows($rezultat);
                 if ($rowCount > 0) {
                     array_push($error, "Email vec postoji");
