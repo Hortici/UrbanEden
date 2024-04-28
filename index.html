@@ -13,6 +13,8 @@
   <!--Link Bootstrap-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!--Link Boostrap Icon Font-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
@@ -38,7 +40,7 @@
 
   <!--Header, Logo & Nav-->
   <header>
-    <div class="container-fluid" id="home">
+    <div class="container-fluid w-75 px-0" id="home">
 
       <nav class="navbar navbar-expand-lg">
 
@@ -51,19 +53,19 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-          <!--Search bar-->
-          <form class="d-flex justify-content-center" role="search">
-            <input class="form-control w-50 me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </form>
           <!--End Nav Toggle Button-->
 
           <!--Nav Extended-->
-          <ul class="nav nav-pills justify-content-center">
-            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/about.html">O nama</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/vrt.html">Moj Vrt</a></li>
-            <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a>Prijavi se</a></button></li>
+          <ul class="nav nav-pills justify-content-center align-items-center">
+            <!--
+            <li class="nav-item"><a class="nav-link" href="index.html">Vrtovi</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/about.html">Info</a></li>
+            <li class="nav-item"><a class="nav-link" href="pages/vrt.html">Kalendar</a></li>
+            -->
+            <li class="nav-item"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a>Prijavi se</a></button></li>
+
+            <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasExample"><a href="pages/home.html"><i class="bi bi-person-fill fs-2"></i></a></button></li>
           </ul>
         </div>
 
@@ -73,7 +75,7 @@
     </div>
   </header>
 
-  <main>
+  <main class="w-75 justify-content-center mx-auto">
 
 
   <!-- Modal PRIJAVI SE -->
@@ -164,41 +166,65 @@
     </div>
   </div>
 
+  
+  <div class="opis d-flex flex-row">
+    <div class="left w-50 m-5 flex-column">
+      <h1>Tvoj Vrtlarski pomoćnik</h1>
+      <br>
+      <p class="my-5 fs-4">Želiš imati svoj vrt, ali ne znaš gdje početi? <br>
+        UrbanEden ti olakšava prvi korak.
+      </p>
+      <p class="my-5 fs-6 ">Sve osnovne informacije o uzgoju biljaka na jednom mjestu.
+      </p>
+      </div>
+    <div class="right bg-secondary w-50 h-auto rounded-3">
+      <!--empty mby pic-->
+    </div>
+  </div>
 
-    <article>
-      <!--Placehoder-->
-      <div class="card" aria-hidden="true">
-        <div class="card-body">
-          <h5 class="card-title placeholder-glow">
-            <span class="placeholder col-6"></span>
-          </h5>
-          <p class="card-text placeholder-glow">
-            <span class="placeholder col-7"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-6"></span>
-            <span class="placeholder col-8"></span>
-          </p>
-          <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+    <div class="processSumUp d-flex flex-column mt-5 pt-5">
+      <div class="naslovi d-flex flex-row justify-content-between">
+        <span class="px-2 mx-3 col-3 fs-5">
+          <h3 class="mb-4">
+            1. Zasadi vrt
+          </h3>
+          <p>Selekcija biljaka koja odgovara tvojim uvjetima.</p>
+        </span>
+        <span class="px-2 mx-3 col-3 fs-5">
+          <h3 class="mb-4">
+            2. Upoznaj biljke
+          </h3>
+          <p>Osnovne informacije o biljci i članci o različitim vrstama uzgoja.</p>
+        </span>
+        <span class="px-2 mx-3 col-3 fs-5">
+          <h3 class="mb-4">
+            3. Ne zaboravi
+          </h3>
+          <p>Podsjetnici za redovitu brigu i kalendari radova u vrtu.</p>
+        </span>
+      </div>
+
+      <div class="slike d-flex flex-row justify-content-between fs-2 mt-3 h-50">
+        <div class="d-flex flex-column bg-secondary w-50 h-auto rounded-3 mx-4 px-2">
+          <i class="bi bi-dot" ></i>
+          <i class="bi bi-dot" ></i>
+          <i class="bi bi-dot"></i>
+        </div>
+        <div class="d-flex flex-column bg-secondary w-50 rounded-3 mx-4 px-2">
+          <i class="bi bi-dot"></i>
+          <i class="bi bi-dot"></i>
+          <i class="bi bi-dot"></i>
+        </div>
+        <div class="d-flex flex-column bg-secondary w-50 rounded-3 mx-4 px-2">
+          <i class="bi bi-dot"></i>
+          <i class="bi bi-dot"></i>
+          <i class="bi bi-dot"></i>
         </div>
       </div>
-        <!--Placehoder-->
-      <div class="card" aria-hidden="true">
-        <div class="card-body">
-          <h5 class="card-title placeholder-glow">
-            <span class="placeholder col-6"></span>
-          </h5>
-          <p class="card-text placeholder-glow">
-            <span class="placeholder col-7"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-4"></span>
-            <span class="placeholder col-6"></span>
-            <span class="placeholder col-8"></span>
-          </p>
-          <a class="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
-        </div>
-      </div>
-    </article>
+
+    </div>
+  </div>
+    
 
   </main>
 
