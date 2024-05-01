@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION["korisnik"])){
+    header("Location: pages/home.php");
+    $linkLogo = 'home.php';
+}else{
+    $linkLogo = 'index.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,7 +53,7 @@
 
       <nav class="navbar navbar-expand-lg">
 
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="index.php">
           <h1 id="logo">UrbanEden</h1>
         </a>
         <!--Nav Toggle Button-->
@@ -58,14 +67,13 @@
           <!--Nav Extended-->
           <ul class="nav nav-pills justify-content-center align-items-center">
             <!--
-            <li class="nav-item"><a class="nav-link" href="index.html">Vrtovi</a></li>
+            <li class="nav-item"><a class="nav-link" href="index.php">Vrtovi</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/about.html">Info</a></li>
             <li class="nav-item"><a class="nav-link" href="pages/vrt.html">Kalendar</a></li>
             -->
             <li class="nav-item"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a>Prijavi se</a></button></li>
 
-            <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvasExample"><a href="pages/home.html"><i class="bi bi-person-fill fs-2"></i></a></button></li>
+            <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
           </ul>
         </div>
 
@@ -77,6 +85,41 @@
 
   <main class="w-75 justify-content-center mx-auto">
 
+      <?php
+      if(isset($_POST["login"])){
+          $email = $_POST["email"];
+          $lozinka = $_POST["password"];
+
+          echo $email;
+          echo $lozinka;
+
+          require_once "connect.php";
+
+          $sql = "SELECT * FROM korisnici WHERE email = '$email'";
+          if (isset($connected)) {
+              $rezultat = mysqli_query($connected, $sql);
+          }
+          $korisnik = mysqli_fetch_array($rezultat, MYSQLI_ASSOC);
+          if($korisnik){
+              if(password_verify($lozinka, $korisnik["password"])){
+
+                  $_SESSION["korisnik"] = $korisnik["ime"];
+
+                  /* index page
+                      <a href="logout.php" class="btn btn-warning">Log out</a>
+                  */
+
+                  header("Location: pages/home.php");
+                  die();
+              }else{
+                  echo "<div class='alert alert-danger'>Lozinka nije tocna</div>";
+              }
+          }else{
+              echo "<div class='alert alert-danger'>Email ne postoji</div>";
+          }
+      }
+      ?>
+
 
   <!-- Modal PRIJAVI SE -->
   <div class="modal fade" id="LoginExampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,7 +130,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="index.php" method="post">
             <div class="mb-3">
               <label for="email" class="col-form-label col-sm-2">
                 Email:
@@ -100,68 +143,120 @@
                   Lozinka:
                 </label>
                 <div class="col-sm-10">
-                  <input type="text" name="email" class="form-control" id="password">
+                  <input type="password" name="password" class="form-control" id="password">
                 </div>
               </div>
             </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
+                  <button type="submit" name="login" class="btn btn-primary">Prijavi se</button>
+              </div>
           </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
-          <button type="button" class="btn btn-primary">Prijavi se</button>
         </div>
       </div>
     </div>
   </div>
   <!-- Kraj modalnog dijela PRIJAVI SE -->
 
+      <?php
+      if (isset($_POST["registracija"])) {
+          $ime2 = $_POST["ime2"];
+          $email2 = $_POST["email2"];
+          $lozinka2 = $_POST["password2"];
+          $lozinka22 = $_POST["password22"];
+
+          $lozinkaHash2 = password_hash($lozinka2, CRYPT_BLOWFISH);
+
+          $error = array();
+          if (empty($ime2) or empty($email2) or empty($lozinka2) or empty($lozinka22)) {
+              array_push($error, "Treba unijeti sva polja");
+          }
+          if (!filter_var($email2, FILTER_VALIDATE_EMAIL)) {
+              array_push($error, "Email nije dobar");
+          }
+          if (strlen($lozinka2) < 8) {
+              array_push($error, "Lozinka treba biti barem 8 znakova");
+          }
+          if ($lozinka2 !== $lozinka22) {
+              array_push($error, "Lozinke se ne podudaraju");
+          }
+
+          require_once "connect.php";
+          $sql = "SELECT * FROM korisnici WHERE email = '$email2'";
+          if (isset($connected)) {
+              $rezultat = mysqli_query($connected, $sql);
+          }
+          $rowCount = mysqli_num_rows($rezultat);
+          if ($rowCount > 0) {
+              array_push($error, "Email vec postoji");
+          }
+          if (count($error) > 0) {
+              foreach ($error as $err) {
+                  echo "<div class='alert alert-danger'>$err</div>";
+              }
+          } else {
+              $sql = "INSERT INTO korisnici (ime, email, password) VALUES (?,?,?)";
+              $stmt = mysqli_stmt_init($connected);
+              $prepare = mysqli_stmt_prepare($stmt, $sql);
+              if ($prepare) {
+                  mysqli_stmt_bind_param($stmt, "sss", $ime2, $email2, $lozinkaHash2);
+                  mysqli_stmt_execute($stmt);
+                  echo "<div class='alert alert-success'> Registriran si!</div>";
+              } else {
+                  die("Registracija nije uspjela");
+              }
+          }
+      }
+      ?>
+
   <!-- Modal Registriraj SE -->
   <div class="modal fade" id="RegisterExampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel">Prijavi se</h1>
+          <h1 class="modal-title fs-5" id="exampleModalLabel2">Prijavi se</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form action="">
+          <form action="index.php" method="post">
             <div class="mb-3">
-              <label for="text" class="col-form-label col-sm-2">
+              <label for="ime2" class="col-form-label col-sm-2">
                 Ime:
               </label>
               <div class="col-sm-10">
-                <input type="text" name="email" class="form-control" id="text">
+                <input type="text" name="ime2" class="form-control" id="ime2">
               </div>
-              <label for="email" class="col-form-label col-sm-2">
+              <label for="email2" class="col-form-label col-sm-2">
                 Email:
               </label>
               <div class="col-sm-10">
-                <input type="text" name="email" class="form-control" id="email">
+                <input type="text" name="email2" class="form-control" id="email2">
               </div>
               <div class="mb-3">
-                <label for="password" class="col-form-label col-sm-2">
+                <label for="password2" class="col-form-label col-sm-2">
                   Lozinka:
                 </label>
                 <div class="col-sm-10">
-                  <input type="text" name="password" class="form-control" id="password">
+                  <input type="password" name="password2" class="form-control" id="password2">
                 </div>
                 <div class="mb-3">
-                  <label for="password2" class="col-form-label col-sm-4">
+                  <label for="password22" class="col-form-label col-sm-4">
                     Ponovi lozinku:
                   </label>
                   <br>
                   <div class="col-sm-10">
-                    <input type="text" name="password2" class="form-control" id="password2">
+                    <input type="password" name="password22" class="form-control" id="password22">
                   </div>
               </div>
             </div>
             </div>
+              <div class="modal-footer">
+                  <button type="submit" name="registracija" class="btn btn-primary">Registriraj se</button>
+                  <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#LoginExampleModal">Prijavi se</button>
+              </div>
           </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary">Registriraj se</button>
-          <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#LoginExampleModal">Prijavi se</button>
-        </div>
+
       </div>
     </div>
   </div>

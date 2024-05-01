@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(isset($_SESSION["korisnik"])){
+    $linkLogo = 'home.php';
+    $korisnik = $_SESSION["korisnik"];
+}else{
+    $linkLogo = 'index.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +41,12 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+<?php
+if (isset($_POST["odjava"])){
+    session_destroy();
+    header("Location: ../index.php");
+}
+?>
 
     <!--Header, Logo & Nav-->
     <header>
@@ -39,7 +54,7 @@
     
             <nav class="navbar navbar-expand-lg">
     
-                <a class="navbar-brand" href="../index.html">
+                <a class="navbar-brand" href="../index.php">
                     <h1 id="logo">UrbanEden</h1>
                     
                 </a>
@@ -68,15 +83,22 @@
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
+                    <div>
+                        <h2>Pozdrav <?php echo $korisnik;?></h2>
+                    </div>
                   <div>
                     Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
                   </div>
+                    <form action="home.php" method="post">
+                        <button type="submit" name="odjava" class="btn btn-primary">Odjavi se</button>
+                    </form>
                 </div>
               </div>
     
     
         </div>
     </header>
+
 
     <main class="w-75 justify-content-center mx-auto">
         <!--Sažetak tablica-->
