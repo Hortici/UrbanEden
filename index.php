@@ -18,28 +18,20 @@ if(isset($_SESSION["korisnik"])){
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Urban Eden</title>
 
-  <!--Link personal css-->
+  <!--Link za  CSS-->
   <link rel="stylesheet" href="style.css">
-  <!--Font Awesome-->
+  <!--Font Awesome Link-->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-  <!--Link Bootstrap-->
+  <!--Link za korištenje Bootstrapa-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!--Link Boostrap Icon Font-->
+    <!--Link za korištenje Bootstrap ikona, Boostrap Icon Font-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
-  <!--Grid Demo-->
-  <!-- support for IE -->
-  <!--
-      <script src="node_modules/gridstack/dist/es5/gridstack-poly.js"></script>
-    <script src="node_modules/gridstack/dist/es5/gridstack-all.js"></script>
-    <link rel="stylesheet" href="demo.css"/>
-    -->
-
-  <!--Bootstrap JS-->
+  <!--Link za Bootstrap js module-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
@@ -53,29 +45,25 @@ if(isset($_SESSION["korisnik"])){
   <!--Header, Logo & Nav-->
   <header>
     <div class="container-fluid w-75 px-0" id="home">
-
+      <!--Navbar sekcija-->
       <nav class="navbar navbar-expand-lg">
-
+        <!--Logo i link za home stranicu-->
         <a class="navbar-brand" href="index.php">
           <h1 id="logo">UrbanEden</h1>
         </a>
-        <!--Nav Toggle Button-->
+        <!--Nav Toggle gumb-->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
           aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
+        <!--End Nav Toggle Button-->
         <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-          <!--End Nav Toggle Button-->
-
-          <!--Nav Extended-->
+          
+          <!--Komponente navigacije, rađene bootstrapom-->
           <ul class="nav nav-pills justify-content-center align-items-center">
-            <!--
-            <li class="nav-item"><a class="nav-link" href="index.php">Vrtovi</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/about.html">Info</a></li>
-            <li class="nav-item"><a class="nav-link" href="pages/vrt.html">Kalendar</a></li>
-            -->
+            <!--Gumb za prijavu / registraciju korisnika-->
             <li class="nav-item"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a>Prijavi se</a></button></li>
-
+            <!--Gumb za otvaranje postavki profila-->
             <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
           </ul>
         </div>
@@ -85,7 +73,7 @@ if(isset($_SESSION["korisnik"])){
 
     </div>
   </header>
-
+<!-- Glavni dio stranice -->
   <main class="w-75 justify-content-center mx-auto">
 
       <?php
@@ -137,7 +125,7 @@ if(isset($_SESSION["korisnik"])){
       ?>
 
 
-  <!-- Modal PRIJAVI SE -->
+  <!-- "Modal" od boostrapa za prijavu korisnika-->
   <div class="modal fade" id="LoginExampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -164,6 +152,7 @@ if(isset($_SESSION["korisnik"])){
               </div>
             </div>
               <div class="modal-footer">
+                <!-- Gumbi za biranje forme - Prijave / Registracije -->
                   <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
                   <button type="submit" name="login" class="btn btn-primary">Prijavi se</button>
               </div>
@@ -172,7 +161,7 @@ if(isset($_SESSION["korisnik"])){
       </div>
     </div>
   </div>
-  <!-- Kraj modalnog dijela PRIJAVI SE -->
+  <!-- Kraj modalnog dijela prijave korisnika -->
 
       <?php
       /*
@@ -241,7 +230,7 @@ if(isset($_SESSION["korisnik"])){
       }
       ?>
 
-  <!-- Modal Registriraj SE -->
+  <!-- "Modal" od boostrapa za registraciju korisnika-->
   <div class="modal fade" id="RegisterExampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -283,17 +272,19 @@ if(isset($_SESSION["korisnik"])){
             </div>
             </div>
               <div class="modal-footer">
+                  <!-- Gumbi za biranje forme - Prijave / Registracije -->
                   <button type="submit" name="registracija" class="btn btn-primary">Registriraj se</button>
                   <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#LoginExampleModal">Prijavi se</button>
               </div>
           </form>
         </div>
-
       </div>
     </div>
   </div>
+  <!-- Kraj modalnog dijela registracije korisnika -->
 
-  
+
+<!-- Glavni sadržaj stranice -->  
   <div class="opis d-flex flex-row">
     <div class="left w-50 m-5 flex-column">
       <h1>Tvoj Vrtlarski pomoćnik</h1>
@@ -305,7 +296,7 @@ if(isset($_SESSION["korisnik"])){
       </p>
       </div>
     <div class="right bg-secondary w-50 h-auto rounded-3">
-      <!--empty mby pic-->
+      <img src="assets/images/Gardening-rafiki 1.svg" alt="Gardening picture">
     </div>
   </div>
 

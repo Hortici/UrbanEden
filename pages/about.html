@@ -32,34 +32,35 @@
 
 <body>
 
-    <!--Header, Logo & Nav-->
-    <header>
-      <div class="container-fluid w-75 px-0" id="home">
-  
+        <!--Header, Logo & Nav-->
+      <header>
+        <div class="container-fluid w-75 px-0" id="home">
+          <!--Navbar sekcija-->
           <nav class="navbar navbar-expand-lg">
-  
-              <a class="navbar-brand" href="../index.php">
-                  <h1 id="logo">UrbanEden</h1>
-                  
-              </a>
-              <!--Nav Toggle Button-->
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
-                  aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-              <!--End Nav Toggle Button-->
-
-                  <!--Nav Extended-->
-                  <ul class="nav nav-pills justify-content-center align-items-center">
-                      <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrtovi</a></li>
-                      <li class="nav-item"><a class="nav-link" href="about.html">Info</a></li>
-                      <li class="nav-item"><a class="nav-link" href="calendar.html">Kalendar</a></li>
-                      <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
-                      data-bs-target="#offcanvasExample"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
-                  </ul>
-              </div>
+            <!--Logo i link za home stranicu-->
+            <a class="navbar-brand d-flex flex-row" href="index.php">
+              <img src="../assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
+              <h1 id="logo" class="m-0">UrbanEden</h1>
+            </a>
+            <!--Nav Toggle gumb-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+              aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--End Nav Toggle Button-->
+            <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
+              
+              <!--Komponente navigacije, rađene bootstrapom-->
+              <ul class="nav nav-pills justify-content-center align-items-center">
+                <!--Gumb za prijavu / registraciju korisnika-->
+                <li class="nav-item"><button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a>Prijavi se</a></button></li>
+                <!--Gumb za otvaranje postavki profila-->
+                <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#LoginExampleModal"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
+              </ul>
+            </div>
           </nav>
+        </div>
+      </header>
 
           <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
               <div class="offcanvas-header">
