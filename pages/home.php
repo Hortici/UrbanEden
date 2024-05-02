@@ -158,8 +158,73 @@ if (isset($_POST["odjava"])){
 
         <div class="d-flex justify-content-between align-items-center mt-5">
             <h2>Vrtovi</h2>
-            <i class="bi bi-plus-square fs-2"></i>
+            <button data-bs-toggle="modal" data-bs-target="#napraviVrt" style="border: none; background-color: white;"><i class="bi bi-plus-square fs-2"></i></button>
         </div>
+
+        <div class="modal fade" id="napraviVrt" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Unos vrta</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="submit">
+                  <div class="unosIme">
+                    <label for="imevrt" class="form-label">Naziv vrta</label>
+                    <input type="text" class="form-control" id="imevrt" placeholder="Unesite naziv vrta">
+                  </div>
+                  <hr>
+                  
+                  <div class="birajLayout">
+                    <table class="table">
+                        <tr class="row">
+                            <td>
+                                
+                                    <div class="row">
+                                        <div class="flexbox col m-2 justify-content-start align-items-start">
+                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick1">
+                                            <img src="../assets/layout-pictures/3row-3cell.png" alt="3row-3cell">
+                                        </div>
+                                        <div class="col m-2">
+                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick2">
+                                            <img src="../assets/layout-pictures/4row.png" alt="4row">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col m-2">
+                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick3">
+                                            <img src="../assets/layout-pictures/2row-3col.png" alt="2row-3col">
+                                        </div>
+                                        <div class="col m-2">
+                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick4">
+                                            <img src="../assets/layout-pictures/3col.png" alt="3col">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col m-2">
+                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick5">
+                                            <img src="../assets/layout-pictures/2row-1block.png" alt="2row-1block">
+                                        </div>
+                                        <div class="col m-2">
+                                            
+                                        </div>
+                                    </div>
+                                
+                            </td>
+                        </tr>
+                    </table>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                  <button type="submit" class="btn btn-primary"><a href="napravljenVrt.html" class="nav-link">Spremi Vrt</a></button>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
         <hr>
         <table class="table">
             <tbody>
