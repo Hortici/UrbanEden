@@ -1,6 +1,8 @@
 <?php
+/*Započinje sesiju na trenutnoj stranici*/
 session_start();
 if(isset($_SESSION["korisnik"])){
+    /*Postavlja varijablu linkLogo na trenutnu stranicu te varijablu korisnik na ime trenutno ulogiranog korisnika*/
     $linkLogo = 'home.php';
     $korisnik = $_SESSION["korisnik"];
 }else{
@@ -42,6 +44,7 @@ if(isset($_SESSION["korisnik"])){
 </head>
 <body>
 <?php
+/*Ukoliko korisnik pritisne gumb odjava sesija se gasi te se korisnik preusmjerava na index.php stranicu*/
 if (isset($_POST["odjava"])){
     session_destroy();
     header("Location: ../index.php");

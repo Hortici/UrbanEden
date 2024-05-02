@@ -1,7 +1,10 @@
 <?php
+/*Započinje sesiju na trenutnoj stranici
+ukoliko je korisnik ulogiran preusmjerava ga se na home.php stranicu*/
 session_start();
 if(isset($_SESSION["korisnik"])){
     header("Location: pages/home.php");
+    /*Varijabla linkLogo služi za kontrolu navigacije u headeru*/
     $linkLogo = 'home.php';
 }else{
     $linkLogo = 'index.php';
@@ -86,20 +89,30 @@ if(isset($_SESSION["korisnik"])){
   <main class="w-75 justify-content-center mx-auto">
 
       <?php
+
+      /*
+       * Kod koji kontrolira login na index stranici
+       * Ukoliko je poslana login forma izvršava se sljedeći dio koda
+       */
       if(isset($_POST["login"])){
+          /*Dohvaća uneseni email i lozinku te ih sprema u varijable*/
           $email = $_POST["email"];
           $lozinka = $_POST["password"];
 
-          echo $email;
-          echo $lozinka;
+          //echo $email;
+          //echo $lozinka;
 
+          /*Uvjetuje da se connect.php koji služi za spajanje na bazu učita*/
           require_once "connect.php";
 
+          /*Uzima sve podatke iz baze gdje se email podudara s unesenim te ih sprema u varijablu pomoću mysqli fetch array*/
           $sql = "SELECT * FROM korisnici WHERE email = '$email'";
           if (isset($connected)) {
               $rezultat = mysqli_query($connected, $sql);
           }
           $korisnik = mysqli_fetch_array($rezultat, MYSQLI_ASSOC);
+          /*Ukoliko jsu podatci uspješno dohvaćeni potvrđuje uneseni password s kriptiranim passwordom iz baze
+          Sprema ime korisnika u session kako bi zapamtio da je korisnik registriran*/
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
 
@@ -109,12 +122,15 @@ if(isset($_SESSION["korisnik"])){
                       <a href="logout.php" class="btn btn-warning">Log out</a>
                   */
 
+                  /* Šalje korisnika na home.php stranicu aplikacije ako je uspješno registriran*/
                   header("Location: pages/home.php");
                   die();
               }else{
+                  /*Ako je korisnik unesao krivu lozinku ispisuje mu se poruka*/
                   echo "<div class='alert alert-danger'>Lozinka nije tocna</div>";
               }
           }else{
+              /*Ako je korisnik unesao email koji ne postoji u bazi ispisuje mu se poruka*/
               echo "<div class='alert alert-danger'>Email ne postoji</div>";
           }
       }
@@ -159,7 +175,13 @@ if(isset($_SESSION["korisnik"])){
   <!-- Kraj modalnog dijela PRIJAVI SE -->
 
       <?php
+      /*
+       * Kod koji kontrolira registraciju na index stranici
+       * Ukoliko je poslana forma za registraciju izvršava se sljedeći dio koda
+       */
       if (isset($_POST["registracija"])) {
+          /*Dohvaća uneseno ime,email,lozinku te ponovljenu lozinku te ih sprema u varijable,
+          kreira kriptiranu lozinku u posebnoj varijabli*/
           $ime2 = $_POST["ime2"];
           $email2 = $_POST["email2"];
           $lozinka2 = $_POST["password2"];
@@ -167,6 +189,8 @@ if(isset($_SESSION["korisnik"])){
 
           $lozinkaHash2 = password_hash($lozinka2, CRYPT_BLOWFISH);
 
+          /*Stvara error array koji provjerava ukoliko je korisnik zaboravio unijeti neku od informacije ili je u nepravilnom formatu
+          te sprema poruke u taj array*/
           $error = array();
           if (empty($ime2) or empty($email2) or empty($lozinka2) or empty($lozinka22)) {
               array_push($error, "Treba unijeti sva polja");
@@ -181,20 +205,27 @@ if(isset($_SESSION["korisnik"])){
               array_push($error, "Lozinke se ne podudaraju");
           }
 
+          /*Uvjetuje da se connect.php koji služi za spajanje na bazu učita*/
           require_once "connect.php";
+
+          /*Uzima sve podatke iz baze gdje se email podudara s unesenim te ih sprema u varijablu pomoću mysqli fetch array*/
           $sql = "SELECT * FROM korisnici WHERE email = '$email2'";
           if (isset($connected)) {
               $rezultat = mysqli_query($connected, $sql);
           }
           $rowCount = mysqli_num_rows($rezultat);
+          /*Ukoliko poslani query vrati redak iz baze to znači da korisnik s tim emailom već postoji i šalje novu poruku u error array*/
           if ($rowCount > 0) {
               array_push($error, "Email vec postoji");
           }
+          /*Ukoliko postoje error poruke ispisuju se korisniku*/
           if (count($error) > 0) {
               foreach ($error as $err) {
                   echo "<div class='alert alert-danger'>$err</div>";
               }
           } else {
+              /*Stvara query za unos podataka u bazu, provjerava konekciju te izvršava unos podataka
+              pomoću mysqli_stmt_execute, podatci su na ovaj način zaštićeni*/
               $sql = "INSERT INTO korisnici (ime, email, password) VALUES (?,?,?)";
               $stmt = mysqli_stmt_init($connected);
               $prepare = mysqli_stmt_prepare($stmt, $sql);
@@ -203,6 +234,7 @@ if(isset($_SESSION["korisnik"])){
                   mysqli_stmt_execute($stmt);
                   echo "<div class='alert alert-success'> Registriran si!</div>";
               } else {
+                  /*Unos podatak nije bio uspješan*/
                   die("Registracija nije uspjela");
               }
           }
