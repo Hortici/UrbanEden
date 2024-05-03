@@ -46,7 +46,7 @@ if(isset($_SESSION["korisnik"])){
       <!--Navbar sekcija-->
       <nav class="navbar navbar-expand-lg">
         <!--Logo i link za home stranicu-->
-        <a class="navbar-brand d-flex flex-row" href="index.php">
+        <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo?>">
           <img src="assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
           <h1 id="logo" class="m-0">UrbanEden</h1>
         </a>
@@ -98,6 +98,7 @@ if(isset($_SESSION["korisnik"])){
           Sprema ime korisnika u session kako bi zapamtio da je korisnik registriran*/
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
+
 
                   $_SESSION["korisnik"] = $korisnik["ime"];
 
@@ -158,7 +159,7 @@ if(isset($_SESSION["korisnik"])){
   </div>
   <!-- Kraj modalnog dijela prijave korisnika -->
 
-      <?
+      <?php
       /*
  * Kod koji kontrolira registraciju na index stranici
  * Ukoliko je poslana forma za registraciju izvršava se sljedeći dio koda
@@ -198,18 +199,17 @@ te sprema poruke u taj array*/
               $rezultat = mysqli_query($connected, $sql);
           }
           $rowCount = mysqli_num_rows($rezultat);
-          /*Ukoliko poslani query vrati redak iz baze to znači da korisnik s tim emailom već postoji i šalje novu poruku u error array*/
+
           if ($rowCount > 0) {
               array_push($error, "Email vec postoji");
           }
-          /*Ukoliko postoje error poruke ispisuju se korisniku*/
+
           if (count($error) > 0) {
               foreach ($error as $err) {
                   echo "<div class='alert alert-danger'>$err</div>";
               }
           } else {
-              /*Stvara query za unos podataka u bazu, provjerava konekciju te izvršava unos podataka
-              pomoću mysqli_stmt_execute, podatci su na ovaj način zaštićeni*/
+
               $sql = "INSERT INTO korisnici (ime, email, password) VALUES (?,?,?)";
               $stmt = mysqli_stmt_init($connected);
               $prepare = mysqli_stmt_prepare($stmt, $sql);
