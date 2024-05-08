@@ -81,23 +81,25 @@ if (isset($_POST["odjava"])){
             </nav>
             <!--offcanvas profil sidebar-->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profil</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
+                
                 <div class="offcanvas-body">
-                    <div>
-                        <h2>Pozdrav <?php echo $korisnik;?></h2>
+                    <div class="d-flex flex-row justify-content-between align-items-center">
+                        <div class="d-flex flex-row  align-items-center justify-content-center">
+                        <i class="bi bi-person-fill fs-2"></i>
+                        <h2 class="m-0 ps-2"><?php echo $korisnik;?></h2>
                     </div>
-                    <br>
-                    <div class="my-4">
-                    Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+                    
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
-                    <form action="home.php" method="post">
-                        <button type="submit" name="odjava" class="btn btn-primary">Odjavi se</button>
+                    
+                    <hr>
+                    
+                    <form action="home.php" method="post" class="d-flex flex-column justify-content-start">
+                        <button class="btn btn-primary m-2 w-50">Postavke</button>
+                        <button type="submit" name="odjava" class="btn btn-primary m-2 w-50">Odjavi se</button>
                     </form>
                 </div>
-              </div>
+            </div>
         </div>
     </header>
 

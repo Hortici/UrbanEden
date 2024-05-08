@@ -1,0 +1,52 @@
+{
+  "name": "UrbanEden",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "bootstrap": "^3.4.1",
+        "bootstrap-icons": "^1.11.3",
+        "gridstack": "^10.1.1"
+      }
+    },
+    "node_modules/bootstrap": {
+      "version": "3.4.1",
+      "resolved": "https://registry.npmjs.org/bootstrap/-/bootstrap-3.4.1.tgz",
+      "integrity": "sha512-yN5oZVmRCwe5aKwzRj6736nSmKDX7pLYwsXiCj/EYmo16hODaBiT4En5btW/jhBF/seV+XMx3aYwukYC3A49DA==",
+      "engines": {
+        "node": ">=6"
+      }
+    },
+    "node_modules/bootstrap-icons": {
+      "version": "1.11.3",
+      "resolved": "https://registry.npmjs.org/bootstrap-icons/-/bootstrap-icons-1.11.3.tgz",
+      "integrity": "sha512-+3lpHrCw/it2/7lBL15VR0HEumaBss0+f/Lb6ZvHISn1mlK83jjFpooTLsMWbIjJMDjDjOExMsTxnXSIT4k4ww==",
+      "funding": [
+        {
+          "type": "github",
+          "url": "https://github.com/sponsors/twbs"
+        },
+        {
+          "type": "opencollective",
+          "url": "https://opencollective.com/bootstrap"
+        }
+      ]
+    },
+    "node_modules/gridstack": {
+      "version": "10.1.1",
+      "resolved": "https://registry.npmjs.org/gridstack/-/gridstack-10.1.1.tgz",
+      "integrity": "sha512-pUd+5Bz8KJr/O4JrjKjGoVHAPOB4G+aW3xOM8xK7FZj6msEsbELcAxKFCwm3irjjd4zglE1jdaEPp7b2TObg9w==",
+      "funding": [
+        {
+          "type": "paypal",
+          "url": "https://www.paypal.me/alaind831"
+        },
+        {
+          "type": "venmo",
+          "url": "https://www.venmo.com/adumesny"
+        }
+      ]
+    }
+  }
+}
