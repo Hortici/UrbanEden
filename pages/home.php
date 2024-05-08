@@ -57,21 +57,21 @@ if (isset($_POST["odjava"])){
     
             <nav class="navbar navbar-expand-lg">
             <!--Logo i link za home stranicu-->
-            <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
+            <a class="navbar-brand d-flex flex-row" href="home.php">
                 <img src="../assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
                 <h1 id="logo" class="m-0">UrbanEden</h1>
             </a>
-                <!--Nav Toggle Button-->
+                <!--Nav Toggle Gumb-->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
                     aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end" id="navbarTogglerDemo01">
-                <!--End Nav Toggle Button-->
+                <!--Kraj Nav Toggle Gumb-->
 
                     <!--Nav Extended-->
                     <ul class="nav nav-pills justify-content-center align-items-center">
-                        <li class="nav-item active"><a class="nav-link" href="napravljenVrt.html">Vrtovi</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrt</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Info</a></li>
                         <li class="nav-item"><a class="nav-link" href="calendar.html">Kalendar</a></li>
                         <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
@@ -79,10 +79,10 @@ if (isset($_POST["odjava"])){
                     </ul>
                 </div>
             </nav>
-
+            <!--offcanvas profil sidebar-->
             <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
                 <div class="offcanvas-header">
-                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+                  <h5 class="offcanvas-title" id="offcanvasExampleLabel">Profil</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
@@ -90,16 +90,14 @@ if (isset($_POST["odjava"])){
                         <h2>Pozdrav <?php echo $korisnik;?></h2>
                     </div>
                     <br>
-                  <div>
+                    <div class="my-4">
                     Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
-                  </div>
+                    </div>
                     <form action="home.php" method="post">
                         <button type="submit" name="odjava" class="btn btn-primary">Odjavi se</button>
                     </form>
                 </div>
               </div>
-    
-    
         </div>
     </header>
 
@@ -251,9 +249,45 @@ if (isset($_POST["odjava"])){
                         <p>Opis vrta... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque aperiam a aliquid. Accusamus beatae velit quod voluptatibus, temporibus quo. Praesentium ea tenetur, sit provident cum ipsum ex officiis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non id reiciendis soluta. Deserunt ipsam quidem porro, tenetur aliquam exercitationem, perspiciatis itaque deleniti iusto molestias voluptate libero. Cum fugit placeat harum.</p>
                     </td>
                 </tr>
+
+                <tr class="row bg-secondary-subtle rounded p-2 my-3 col-sm-12" id="vrtTri">
+                    
+                    <td class="col-4 row-2 bg-secondary rounded-3 m-2 d-flex justify-content-center">
+                        <img src="../assets/layout-pictures/vrt-img.png"  class="img-fluid rounded-2 overflow-hidden w-50 h-auto position-relative">
+                    </td>
+                    <td class="col-6 d-flex flex-column justify-content-start align-items-c bg-secondary-subtle ms-3">
+                        <h3><a href="vrt.html" class="nav-link">Moj treći vrt</a></h3>
+                        <span>dvorište</span>
+                        <br>
+                        <p>Opis vrta... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque aperiam a aliquid. Accusamus beatae velit quod voluptatibus, temporibus quo. Praesentium ea tenetur, sit provident cum ipsum ex officiis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non id reiciendis soluta. Deserunt ipsam quidem porro, tenetur aliquam exercitationem, perspiciatis itaque deleniti iusto molestias voluptate libero. Cum fugit placeat harum.</p>
+                    </td>
+                    
+                </tr>
             </tbody>
         </table>
     </main>
+
+     <!-- Footer sa nav elementima i  copyrightom -->
+     <footer class="position-relative bottom-0 d-flex flex-column align-items-center justify-content-between" style="background-color:#005A00; min-height:100px;">
+        <div class="container-fluid w-50 px-0 pt-2 d-flex flex-row align-items-center justify-content-between ">
+            <span class="float-start mb-2">
+                <ul class="nav d-flex flex-column align-items-center justify-content-start">
+                    <li class="nav-link px-5 text-start"><a href="vrt.html" class="nav-link text-white p-0">Vrt</a></li>
+                    <li class="nav-link px-5"><a href="about.html" class="nav-link text-white p-0">Info</a></li>
+                    <li class="nav-link px-5"><a href="calendar.html" class="nav-link text-white p-0">Kalendar</a></li>
+                </ul>
+            </span>
+            <span class="float-end mb-2">
+                <ul class="nav d-flex flex-column align-items-center">
+                    <li class="nav-link px-5"><a href="#" class="nav-link text-white p-0">O nama</a></li>
+                    <li class="nav-link px-5"><a href="#" class="nav-link text-white p-0">Politika privatnosti</a></li>
+                </ul>
+            </span>
+        </div>
+        <span class="text-white mt-3 pb-3">
+                &copy; UrbanEden 2024
+         </span>
+    </footer>
     
 </body>
 </html>
