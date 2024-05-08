@@ -2,7 +2,7 @@
 /*Započinje sesiju na trenutnoj stranici*/
 session_start();
 if(isset($_SESSION["korisnik"])){
-    /*Postavlja varijablu linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
+    /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
     header("Location: pages/home.php");
     $linkLogo = 'home.php';
 }else{
@@ -343,8 +343,8 @@ te sprema poruke u taj array*/
         <div class="container-fluid w-50 px-0 pt-2 d-flex flex-row align-items-center justify-content-center ">
             <span class="mb-2">
                 <ul class="nav d-flex flex-row align-items-center">
-                    <li class="nav-link px-5"><a href="aboutUs.html" class="nav-link text-white p-0">O nama</a></li>
-                    <li class="nav-link px-5"><a href="policy.html" class="nav-link text-white p-0">Politika privatnosti</a></li>
+                    <li class="nav-link px-5"><a href="#" class="nav-link text-white p-0">O nama</a></li>
+                    <li class="nav-link px-5"><a href="#" class="nav-link text-white p-0">Politika privatnosti</a></li>
                 </ul>
             </span>
         </div>

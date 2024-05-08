@@ -101,7 +101,7 @@ button:focus {
 }
 
 .current-day {
-  color: #FFF;
+  color: #000000;
   border-color: var(--c-theme-primary);
   background-color: var(--c-theme-primary);
 }

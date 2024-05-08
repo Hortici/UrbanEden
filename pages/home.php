@@ -220,7 +220,7 @@ if (isset($_POST["odjava"])){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-                  <button type="submit" class="btn btn-primary"><a href="napravljenVrt.html" class="nav-link">Spremi Vrt</a></button>
+                  <button type="submit" class="btn btn-primary"><a href="vrt.html" class="nav-link">Spremi Vrt</a></button>
                 </div>
                 </form>
               </div>
