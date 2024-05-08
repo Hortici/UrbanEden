@@ -57,7 +57,7 @@ if (isset($_POST["odjava"])){
     
             <nav class="navbar navbar-expand-lg">
             <!--Logo i link za home stranicu-->
-            <a class="navbar-brand d-flex flex-row" href="home.php">
+            <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
                 <img src="../assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
                 <h1 id="logo" class="m-0">UrbanEden</h1>
             </a>
@@ -71,9 +71,9 @@ if (isset($_POST["odjava"])){
 
                     <!--Nav Extended-->
                     <ul class="nav nav-pills justify-content-center align-items-center">
-                        <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrt</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">Info</a></li>
-                        <li class="nav-item"><a class="nav-link" href="calendar.html">Kalendar</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="vrt.php">Vrt</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.php">Info</a></li>
+                        <li class="nav-item"><a class="nav-link" href="calendar.php">Kalendar</a></li>
                         <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
                         data-bs-target="#offcanvasExample"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
                     </ul>
@@ -222,7 +222,7 @@ if (isset($_POST["odjava"])){
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-                  <button type="submit" class="btn btn-primary"><a href="vrt.html" class="nav-link">Spremi Vrt</a></button>
+                  <button type="submit" class="btn btn-primary"><a href="vrt.php" class="nav-link">Spremi Vrt</a></button>
                 </div>
                 </form>
               </div>
@@ -258,7 +258,7 @@ if (isset($_POST["odjava"])){
                         <img src="../assets/layout-pictures/vrt-img.png"  class="img-fluid rounded-2 overflow-hidden w-50 h-auto position-relative">
                     </td>
                     <td class="col-6 d-flex flex-column justify-content-start align-items-c bg-secondary-subtle ms-3">
-                        <h3><a href="vrt.html" class="nav-link">Moj treći vrt</a></h3>
+                        <h3><a href="vrt.php" class="nav-link">Moj treći vrt</a></h3>
                         <span>dvorište</span>
                         <br>
                         <p>Opis vrta... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque aperiam a aliquid. Accusamus beatae velit quod voluptatibus, temporibus quo. Praesentium ea tenetur, sit provident cum ipsum ex officiis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non id reiciendis soluta. Deserunt ipsam quidem porro, tenetur aliquam exercitationem, perspiciatis itaque deleniti iusto molestias voluptate libero. Cum fugit placeat harum.</p>
@@ -274,9 +274,9 @@ if (isset($_POST["odjava"])){
         <div class="container-fluid w-50 px-0 pt-2 d-flex flex-row align-items-center justify-content-between ">
             <span class="float-start mb-2">
                 <ul class="nav d-flex flex-column align-items-center justify-content-start">
-                    <li class="nav-link px-5 text-start"><a href="vrt.html" class="nav-link text-white p-0">Vrt</a></li>
-                    <li class="nav-link px-5"><a href="about.html" class="nav-link text-white p-0">Info</a></li>
-                    <li class="nav-link px-5"><a href="calendar.html" class="nav-link text-white p-0">Kalendar</a></li>
+                    <li class="nav-link px-5 text-start"><a href="vrt.php" class="nav-link text-white p-0">Vrt</a></li>
+                    <li class="nav-link px-5"><a href="about.php" class="nav-link text-white p-0">Info</a></li>
+                    <li class="nav-link px-5"><a href="calendar.php" class="nav-link text-white p-0">Kalendar</a></li>
                 </ul>
             </span>
             <span class="float-end mb-2">

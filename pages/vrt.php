@@ -1,3 +1,14 @@
+<?php
+/*Započinje sesiju na trenutnoj stranici*/
+session_start();
+if(isset($_SESSION["korisnik"])){
+    /*Postavlja varijablu linkLogo na trenutnu stranicu te varijablu korisnik na ime trenutno ulogiranog korisnika*/
+    $linkLogo = 'home.php';
+    $korisnik = $_SESSION["korisnik"];
+}else{
+    $linkLogo = 'index.php';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,13 +35,20 @@
     crossorigin="anonymous"></script>
 </head>
 <body>
+<?php
+/*Ukoliko korisnik pritisne gumb odjava sesija se gasi te se korisnik preusmjerava na index.php stranicu*/
+if (isset($_POST["odjava"])){
+    session_destroy();
+    header("Location: ../index.php");
+}
+?>
 
    <!--Header, Logo & Nav-->
    <header>
     <div class="container-fluid w-75 px-0" id="home">
         <nav class="navbar navbar-expand-lg">
         <!--Logo i link za home stranicu-->
-        <a class="navbar-brand d-flex flex-row" href="home.php">
+        <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
             <img src="../assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
             <h1 id="logo" class="m-0">UrbanEden</h1>
         </a>
@@ -45,8 +63,8 @@
                 <!--Nav Extended-->
                 <ul class="nav nav-pills justify-content-center align-items-center">
                     <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrt</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Info</a></li>
-                    <li class="nav-item"><a class="nav-link" href="calendar.html">Kalendar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="calendar.php">Kalendar</a></li>
                     <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasExample"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
                 </ul>
@@ -67,7 +85,7 @@
                 
                 <hr>
                 
-                <form action="home.php" method="post" class="d-flex flex-column justify-content-start">
+                <form action="vrt.php" method="post" class="d-flex flex-column justify-content-start">
                     <button class="btn btn-primary m-2 w-50">Postavke</button>
                     <button type="submit" name="odjava" class="btn btn-primary m-2 w-50">Odjavi se</button>
                 </form>
@@ -129,8 +147,8 @@
             <span class="float-start mb-2">
                 <ul class="nav d-flex flex-column align-items-center justify-content-start">
                     <li class="nav-link px-5 text-start"><a href="vrt.html" class="nav-link text-white p-0">Vrt</a></li>
-                    <li class="nav-link px-5"><a href="about.html" class="nav-link text-white p-0">Info</a></li>
-                    <li class="nav-link px-5"><a href="calendar.html" class="nav-link text-white p-0">Kalendar</a></li>
+                    <li class="nav-link px-5"><a href="about.php" class="nav-link text-white p-0">Info</a></li>
+                    <li class="nav-link px-5"><a href="calendar.php" class="nav-link text-white p-0">Kalendar</a></li>
                 </ul>
             </span>
             <span class="float-end mb-2">
