@@ -46,7 +46,7 @@ if(isset($_SESSION["korisnik"])){
       <!--Navbar sekcija-->
       <nav class="navbar navbar-expand-lg">
         <!--Logo i link za home stranicu-->
-        <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo?>">
+        <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
           <img src="assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
           <h1 id="logo" class="m-0">UrbanEden</h1>
         </a>

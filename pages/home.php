@@ -57,7 +57,7 @@ if (isset($_POST["odjava"])){
     
             <nav class="navbar navbar-expand-lg">
             <!--Logo i link za home stranicu-->
-            <a class="navbar-brand d-flex flex-row" href="index.php">
+            <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
                 <img src="../assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
                 <h1 id="logo" class="m-0">UrbanEden</h1>
             </a>
@@ -71,7 +71,7 @@ if (isset($_POST["odjava"])){
 
                     <!--Nav Extended-->
                     <ul class="nav nav-pills justify-content-center align-items-center">
-                        <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrtovi</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="napravljenVrt.html">Vrtovi</a></li>
                         <li class="nav-item"><a class="nav-link" href="about.html">Info</a></li>
                         <li class="nav-item"><a class="nav-link" href="calendar.html">Kalendar</a></li>
                         <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
