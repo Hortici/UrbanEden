@@ -333,7 +333,7 @@ te sprema poruke u taj array*/
     <section class="my-5 py-5 d-flex flex-column justify-content-center align-items-center">
       <h2 class="fs-1"><strong>Zvuči dobro?</strong></h2>
       <p class="my-5 fs-4">Postani član UrbanEden zajednice!</p>
-      <button type="submit" name="registracija" class="btn btn-primary btn-success rounded-4 fs-4 px-4 py-3"data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
+      <button type="submit" name="registracija" class="btn btn-primary btn-success rounded-4 fs-4 px-4 py-3" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
     </section>
     
 

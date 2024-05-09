@@ -174,57 +174,64 @@ if (isset($_POST["odjava"])){
                 </div>
                 <div class="modal-body">
                     <form action="submit">
-                  <div class="unosIme">
-                    <label for="imevrt" class="form-label">Naziv vrta</label>
-                    <input type="text" class="form-control" id="imevrt" placeholder="Unesite naziv vrta">
-                  </div>
-                  <hr>
-                  
-                  <div class="birajLayout">
-                    <table class="table">
-                        <tr class="row">
-                            <td>
-                                
-                                    <div class="row">
-                                        <div class="flexbox col m-2 justify-content-start align-items-start">
-                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick1">
-                                            <img src="../assets/layout-pictures/3row-3cell.png" alt="3row-3cell">
+                        <div class="unosIme">
+                            <label for="imevrt" class="form-label">Naziv vrta</label>
+                            <input type="text" class="form-control" id="imevrt" placeholder="Unesite naziv vrta">
+                        </div>
+                        <hr>
+
+                        <div class="birajLayout">
+                            <table class="table">
+                                <tr class="row">
+                                    <td>
+
+                                        <div class="row">
+                                            <div class="flexbox col m-2 justify-content-start align-items-start">
+                                                <input class="m-1 form-check-input" type="radio" name="layoutPick"
+                                                       id="layoutPick1">
+                                                <img src="../assets/layout-pictures/3row-3cell.png" alt="3row-3cell">
+                                            </div>
+                                            <div class="col m-2">
+                                                <input class="m-1 form-check-input" type="radio" name="layoutPick"
+                                                       id="layoutPick2">
+                                                <img src="../assets/layout-pictures/4row.png" alt="4row">
+                                            </div>
                                         </div>
-                                        <div class="col m-2">
-                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick2">
-                                            <img src="../assets/layout-pictures/4row.png" alt="4row">
+                                        <div class="row">
+                                            <div class="col m-2">
+                                                <input class="m-1 form-check-input" type="radio" name="layoutPick"
+                                                       id="layoutPick3">
+                                                <img src="../assets/layout-pictures/2row-3col.png" alt="2row-3col">
+                                            </div>
+                                            <div class="col m-2">
+                                                <input class="m-1 form-check-input" type="radio" name="layoutPick"
+                                                       id="layoutPick4">
+                                                <img src="../assets/layout-pictures/3col.png" alt="3col">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col m-2">
-                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick3">
-                                            <img src="../assets/layout-pictures/2row-3col.png" alt="2row-3col">
+                                        <div class="row">
+                                            <div class="col m-2">
+                                                <input class="m-1 form-check-input" type="radio" name="layoutPick"
+                                                       id="layoutPick5">
+                                                <img src="../assets/layout-pictures/2row-1block.png" alt="2row-1block">
+                                            </div>
+                                            <div class="col m-2">
+
+                                            </div>
                                         </div>
-                                        <div class="col m-2">
-                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick4">
-                                            <img src="../assets/layout-pictures/3col.png" alt="3col">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col m-2">
-                                            <input class="m-1 form-check-input" type="radio" name="layoutPick" id="layoutPick5">
-                                            <img src="../assets/layout-pictures/2row-1block.png" alt="2row-1block">
-                                        </div>
-                                        <div class="col m-2">
-                                            
-                                        </div>
-                                    </div>
-                                
-                            </td>
-                        </tr>
-                    </table>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
-                  <button type="submit" class="btn btn-primary"><a href="vrt.php" class="nav-link">Spremi Vrt</a></button>
-                </div>
-                </form>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zatvori</button>
+                            <button type="submit" class="btn btn-primary"><a href="vrt.php" class="nav-link">Spremi
+                                    Vrt</a>
+                            </button>
+                        </div>
+                    </form>
               </div>
             </div>
           </div>
@@ -255,7 +262,7 @@ if (isset($_POST["odjava"])){
                 <tr class="row bg-secondary-subtle rounded p-2 my-3 col-sm-12" id="vrtTri">
                     
                     <td class="col-4 row-2 bg-secondary rounded-3 m-2 d-flex justify-content-center">
-                        <img src="../assets/layout-pictures/vrt-img.png"  class="img-fluid rounded-2 overflow-hidden w-50 h-auto position-relative">
+                        <img alt="slikaVrta" src="../assets/layout-pictures/vrt-img.png"  class="img-fluid rounded-2 overflow-hidden w-50 h-auto position-relative">
                     </td>
                     <td class="col-6 d-flex flex-column justify-content-start align-items-c bg-secondary-subtle ms-3">
                         <h3><a href="vrt.php" class="nav-link">Moj treći vrt</a></h3>
