@@ -62,7 +62,7 @@ if (isset($_POST["odjava"])){
 
                 <!--Nav Extended-->
                 <ul class="nav nav-pills justify-content-center align-items-center">
-                    <li class="nav-item active"><a class="nav-link" href="vrt.html">Vrt</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="vrt.php">Vrt</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.php">Info</a></li>
                     <li class="nav-item"><a class="nav-link" href="calendar.php">Kalendar</a></li>
                     <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"

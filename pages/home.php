@@ -235,6 +235,7 @@ if (isset($_POST["odjava"])){
               </div>
             </div>
           </div>
+        </div>
 
         <hr>
         <table class="table">
@@ -270,7 +271,6 @@ if (isset($_POST["odjava"])){
                         <br>
                         <p>Opis vrta... Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati doloremque aperiam a aliquid. Accusamus beatae velit quod voluptatibus, temporibus quo. Praesentium ea tenetur, sit provident cum ipsum ex officiis obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Non id reiciendis soluta. Deserunt ipsam quidem porro, tenetur aliquam exercitationem, perspiciatis itaque deleniti iusto molestias voluptate libero. Cum fugit placeat harum.</p>
                     </td>
-                    
                 </tr>
             </tbody>
         </table>
