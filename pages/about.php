@@ -302,7 +302,7 @@ if (isset($_POST["odjava"])){
           <span class="float-start mb-2">
               <ul class="nav d-flex flex-column align-items-center justify-content-start">
                   <li class="nav-link px-5 text-start"><a href="vrt.php" class="nav-link text-white p-0">Vrt</a></li>
-                  <li class="nav-link px-5"><a href="about.html" class="nav-link text-white p-0">Info</a></li>
+                  <li class="nav-link px-5"><a href="about.php" class="nav-link text-white p-0">Info</a></li>
                   <li class="nav-link px-5"><a href="calendar.php" class="nav-link text-white p-0">Kalendar</a></li>
               </ul>
           </span>

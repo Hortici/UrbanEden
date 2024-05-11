@@ -47,8 +47,8 @@
                     array_push($error, "Email vec postoji");
                 }
                 if (count($error) > 0) {
-                    foreach ($error as $error) {
-                        echo "<div class='alert alert-danger'>$error</div>";
+                    foreach ($error as $err) {
+                        echo "<div class='alert alert-danger'>$err</div>";
                     }
                 } else {
                     $sql = "INSERT INTO korisnici (ime, email, password) VALUES (?,?,?)";
