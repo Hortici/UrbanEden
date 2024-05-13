@@ -267,7 +267,7 @@ te sprema poruke u taj array*/
             </div>
             </div>
               <div class="modal-footer">
-                  <!-- Gumbi za biranje forme - Prijave / Registracije -->
+                  <!-- Gumbi za biranje forme - Prijave / Registracije --> <!-- :)))-->
                   <button type="submit" name="registracija" class="btn btn-primary">Registriraj se</button>
                   <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#LoginExampleModal">Prijavi se</button>
               </div>
