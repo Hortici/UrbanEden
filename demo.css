@@ -1,6 +1,5 @@
+@import "/node_modules/gridstack/dist/gridstack.css";
 /* required file for gridstack to work */
-@import "../UrbanEden/node_modules/gridstack/dist/gridstack.css";
-
 /* Optional styles for demos */
 .btn-primary {
   color: #fff;
