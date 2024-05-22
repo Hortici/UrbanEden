@@ -98,7 +98,7 @@ if(isset($_SESSION["korisnik"])){
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
                   $_SESSION["korisnik"] = $korisnik["ime"];
-                  //redirect();
+                  redirect();
                   /* index page
                       <a href="logout.php" class="btn btn-warning">Log out</a>
                   */
