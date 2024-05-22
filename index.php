@@ -1,10 +1,7 @@
 <?php
 /*Započinje sesiju na trenutnoj stranici*/
 session_start();
-function redirect()
-{
-    header("Location: pages/home.php");
-}
+
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
     header("Location: pages/home.php");
@@ -12,9 +9,8 @@ if(isset($_SESSION["korisnik"])){
 }else{
     $linkLogo = 'index.php';
 }
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,8 +37,6 @@ if(isset($_SESSION["korisnik"])){
   integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
 </head>
-
-
 
 <body>
 
@@ -105,7 +99,6 @@ if(isset($_SESSION["korisnik"])){
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
 
-                  redirect();
                   $_SESSION["korisnik"] = $korisnik["ime"];
 
                   /* index page
