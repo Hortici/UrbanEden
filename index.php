@@ -8,6 +8,11 @@ if(isset($_SESSION["korisnik"])){
 }else{
     $linkLogo = 'index.php';
 }
+
+function redirect()
+{
+    header("Location: pages/home.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -107,7 +112,8 @@ if(isset($_SESSION["korisnik"])){
                   */
 
                   /* Šalje korisnika na home.php stranicu aplikacije ako je uspješno registriran*/
-                  header("Location: pages/home.php");
+                  //header("Location: pages/home.php");
+                  redirect();
                   die();
               }else{
                   /*Ako je korisnik unesao krivu lozinku ispisuje mu se poruka*/

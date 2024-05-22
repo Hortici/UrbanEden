@@ -8,6 +8,12 @@ if(isset($_SESSION["korisnik"])){
 }else{
     $linkLogo = 'index.php';
 }
+
+/*Ukoliko korisnik pritisne gumb odjava sesija se gasi te se korisnik preusmjerava na index.php stranicu*/
+if (isset($_POST["odjava"])){
+    session_destroy();
+    header("Location: ../index.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,13 +55,6 @@ if(isset($_SESSION["korisnik"])){
 </head>
 
 <body>
-<?php
-/*Ukoliko korisnik pritisne gumb odjava sesija se gasi te se korisnik preusmjerava na index.php stranicu*/
-if (isset($_POST["odjava"])){
-    session_destroy();
-    header("Location: ../index.php");
-}
-?>
 
   <!--Header, Logo & Nav-->
 <header>
