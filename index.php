@@ -4,12 +4,12 @@ session_start();
 function redirect()
 {
     echo "<script>console.log('asdasdasdasda');</script>";
-    //header("Location: pages/home.php");
+    header("Location: pages/home.php");
 }
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
 
-    header("Location: pages/home.php");
+    //header("Location: pages/home.php");
     $linkLogo = 'home.php';
 }else{
     $linkLogo = 'index.php';
