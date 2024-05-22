@@ -1,15 +1,22 @@
 <?php
-/*Započinje sesiju na trenutnoj stranici*/
 session_start();
-function redirect()
+
+// Function to handle redirection
+function redirect($url)
 {
-    header("Location:pages/home.php");
+    // Ensure headers are not already sent
+    if (!headers_sent()) {
+        header("Location: $url");
+        exit();
+    } else {
+        echo "<script type='text/javascript'>window.location.href='$url';</script>";
+        exit();
+    }
 }
-if(isset($_SESSION["korisnik"])){
-    /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
-    //header("Location: pages/home.php");
-    header("Location:pages/home.php");
-}else{
+// Check if user is logged in
+if (isset($_SESSION["korisnik"])) {
+    redirect("pages/home.php");
+} else {
     $linkLogo = 'index.php';
 }
 ?>
@@ -98,7 +105,7 @@ if(isset($_SESSION["korisnik"])){
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
                   $_SESSION["korisnik"] = $korisnik["ime"];
-                  redirect();
+                  redirect("pages/home.php");
                   /* index page
                       <a href="logout.php" class="btn btn-warning">Log out</a>
                   */
