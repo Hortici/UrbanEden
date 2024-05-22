@@ -4,7 +4,8 @@ session_start();
 
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
-    header("Location: pages/home.php");
+    echo "<script>console.log('asdasdasdasda');</script>";
+    header("Location: /pages/home.php");
     $linkLogo = 'home.php';
 }else{
     $linkLogo = 'index.php';
@@ -99,6 +100,7 @@ if(isset($_SESSION["korisnik"])){
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
 
+                  header("Location: /pages/home.php");
                   $_SESSION["korisnik"] = $korisnik["ime"];
 
                   /* index page
