@@ -104,7 +104,7 @@ if(isset($_SESSION["korisnik"])){
                   */
                   /* Šalje korisnika na home.php stranicu aplikacije ako je uspješno registriran*/
                   //header("Location: pages/home.php");
-                  die();
+                  //die();
               }else{
                   /*Ako je korisnik unesao krivu lozinku ispisuje mu se poruka*/
                   echo "<div class='alert alert-danger'>Lozinka nije tocna</div>";
