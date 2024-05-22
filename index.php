@@ -3,19 +3,16 @@
 session_start();
 function redirect()
 {
-    echo "<script>console.log('asdasdasdasda');</script>";
     header("Location: pages/home.php");
 }
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
-
     //header("Location: pages/home.php");
     $linkLogo = 'home.php';
 }else{
     $linkLogo = 'index.php';
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,13 +83,10 @@ if(isset($_SESSION["korisnik"])){
           /*Dohvaća uneseni email i lozinku te ih sprema u varijable*/
           $email = $_POST["email"];
           $lozinka = $_POST["password"];
-
           //echo $email;
           //echo $lozinka;
-
           /*Uvjetuje da se connect.php koji služi za spajanje na bazu učita*/
           require_once "connect.php";
-
           /*Uzima sve podatke iz baze gdje se email podudara s unesenim te ih sprema u varijablu pomoću mysqli fetch array*/
           $sql = "SELECT * FROM korisnici WHERE email = '$email'";
           if (isset($connected)) {
@@ -103,17 +97,13 @@ if(isset($_SESSION["korisnik"])){
           Sprema ime korisnika u session kako bi zapamtio da je korisnik registriran*/
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
-
                   $_SESSION["korisnik"] = $korisnik["ime"];
-
                   redirect();
                   /* index page
                       <a href="logout.php" class="btn btn-warning">Log out</a>
                   */
-
                   /* Šalje korisnika na home.php stranicu aplikacije ako je uspješno registriran*/
                   //header("Location: pages/home.php");
-
                   die();
               }else{
                   /*Ako je korisnik unesao krivu lozinku ispisuje mu se poruka*/
@@ -177,9 +167,7 @@ if(isset($_SESSION["korisnik"])){
           $email2 = $_POST["email2"];
           $lozinka2 = $_POST["password2"];
           $lozinka22 = $_POST["password22"];
-
           $lozinkaHash2 = password_hash($lozinka2, CRYPT_BLOWFISH);
-
           /*Stvara error array koji provjerava ukoliko je korisnik zaboravio unijeti neku od informacije ili je u nepravilnom formatu
 te sprema poruke u taj array*/
           $error = array();
@@ -195,27 +183,22 @@ te sprema poruke u taj array*/
           if ($lozinka2 !== $lozinka22) {
               array_push($error, "Lozinke se ne podudaraju");
           }
-
           /*Uvjetuje da se connect.php koji služi za spajanje na bazu učita*/
           require_once "connect.php";
-
           /*Uzima sve podatke iz baze gdje se email podudara s unesenim te ih sprema u varijablu pomoću mysqli fetch array*/
           $sql = "SELECT * FROM korisnici WHERE email = '$email2'";
           if (isset($connected)) {
               $rezultat = mysqli_query($connected, $sql);
           }
           $rowCount = mysqli_num_rows($rezultat);
-
           if ($rowCount > 0) {
               array_push($error, "Email vec postoji");
           }
-
           if (count($error) > 0) {
               foreach ($error as $err) {
                   echo "<div class='alert alert-danger'>$err</div>";
               }
           } else {
-
               $sql = "INSERT INTO korisnici (ime, email, password) VALUES (?,?,?)";
               $stmt = mysqli_stmt_init($connected);
               $prepare = mysqli_stmt_prepare($stmt, $sql);
@@ -358,9 +341,6 @@ te sprema poruke u taj array*/
                 &copy; UrbanEden 2024
          </span>
     </footer>
-
-
-
 </body>
 
 </html>
