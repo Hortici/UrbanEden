@@ -4,14 +4,11 @@ session_start();
 function redirect()
 {
     header("Location:pages/home.php");
-    exit;
 }
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
     //header("Location: pages/home.php");
-    $linkLogo = 'home.php';
     header("Location:pages/home.php");
-    exit;
 }else{
     $linkLogo = 'index.php';
 }
@@ -51,7 +48,7 @@ if(isset($_SESSION["korisnik"])){
       <!--Navbar sekcija-->
       <nav class="navbar navbar-expand-lg">
         <!--Logo i link za home stranicu-->
-        <a class="navbar-brand d-flex flex-row" href="<?php echo $linkLogo ?>">
+        <a class="navbar-brand d-flex flex-row" href="#">
           <img src="assets/images/tomato.svg" class="px-2" alt="Image of a tomato">
           <h1 id="logo" class="m-0">UrbanEden</h1>
         </a>
@@ -101,7 +98,7 @@ if(isset($_SESSION["korisnik"])){
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
                   $_SESSION["korisnik"] = $korisnik["ime"];
-                  redirect();
+                  //redirect();
                   /* index page
                       <a href="logout.php" class="btn btn-warning">Log out</a>
                   */
