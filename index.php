@@ -3,12 +3,15 @@
 session_start();
 function redirect()
 {
-    header("Location: pages/home.php");
+    header("Location:pages/home.php");
+    exit;
 }
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu u linkLogo na home.php ukoliko je korisnik ulogiran i preusmjerava ga na home.php*/
     //header("Location: pages/home.php");
     $linkLogo = 'home.php';
+    header("Location:pages/home.php");
+    exit;
 }else{
     $linkLogo = 'index.php';
 }
