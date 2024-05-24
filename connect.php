@@ -11,7 +11,7 @@ $dbName = "urbanedenbaza";
 
 $hostName = "urban-eden-server.mysql.database.azure.com";
 $dbUser = "ueAdmin";
-$dbPassword = getenv("PASSWORD");
+$dbPassword = "theUrbanAd123";
 $dbName = "urbanedenbaza";
 $sslmode="require";
 
