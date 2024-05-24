@@ -9,6 +9,7 @@ jobs:
     environment: production
     steps:
     - name: Execute script
-    env:
-      PASSWORD: ${{ secrets.SCRIPT_CREDENTIALS }}
+      env:
+        PASSWORD: ${{ secrets.SCRIPT_CREDENTIALS }}
+      
       run: php script.php
