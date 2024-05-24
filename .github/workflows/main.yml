@@ -7,6 +7,8 @@ jobs:
   top-secret:
     runs-on: ubuntu-latest
     environment: production
+    steps:
+    - name: Execute script
     env:
-      PASSWORD: ${{ secrets.PHP_CREDENTIALS }}
-      run: php connect.php
+      PASSWORD: ${{ secrets.SCRIPT_CREDENTIALS }}
+      run: php script.php
