@@ -1,0 +1,12 @@
+name: secrets
+
+on:
+  workflow_dispatch
+
+jobs:
+  top-secret:
+    runs-on: ubuntu-latest
+    environment: production
+    env:
+      PASSWORD: ${{ secrets.PHP_CREDENTIALS }}
+      run: php connect.php
