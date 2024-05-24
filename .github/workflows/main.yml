@@ -12,4 +12,4 @@ jobs:
       env:
         PASSWORD: ${{ secrets.SCRIPT_CREDENTIALS }}
       
-      run: php script.php
+      run: php connect.php
