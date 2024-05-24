@@ -9,7 +9,7 @@ $dbPassword = "";
 $dbName = "urbanedenbaza";
 */
 
-$hostName = "urban-eden-server1.mysql.database.azure.com";
+$hostName = "urban-eden-server.mysql.database.azure.com";
 $dbUser = "ueAdmin";
 $dbPassword = "theUrbanAd123";
 $dbName = "urbanedenbaza";
