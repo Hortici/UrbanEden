@@ -8,7 +8,7 @@
 
 <!-- Opis -->
 
-## Urban eden je vrtlarska aplikacija.
+## UrbanEden je vrtlarska aplikacija.
 
 Cilj je pomoću aplikacije dati korisnicima način da bez mnogo razmišljanja i minimalnim trudom sami uzgoje zdravu hranu
 u vlastitom vrtu ili balkonu. Želimo prikazati korisnicima da nije potrebno mnogo posla kako bi se mogli zdravije
