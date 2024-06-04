@@ -138,7 +138,7 @@ if (isset($_POST["odjava"])) {
             //require_once "../connect.php";
 
             try {
-                require_once($_SERVER['DOCUMENT_ROOT']."/connect.php");
+                require_once('../connect.php');
             }catch (Exception $e){
                 echo $e->getMessage();
             }
