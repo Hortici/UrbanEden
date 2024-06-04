@@ -139,7 +139,10 @@ if (isset($_POST["odjava"])) {
 
             try {
                 require_once($_SERVER['DOCUMENT_ROOT']."/connect.php");
-                $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
+                if (isset($connected)) {
+                    $sql = "SELECT * FROM biljke_info ORDER BY id DESC";
+                    $rows_plants = mysqli_query($connected, $sql);
+                }
             }catch (Exception $e){
                 echo $e->getMessage();
             }
