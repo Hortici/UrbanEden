@@ -1,6 +1,9 @@
 <?php
 /*Započinje sesiju na trenutnoj stranici*/
-session_start();
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
+
 if(isset($_SESSION["korisnik"])){
     /*Postavlja varijablu linkLogo na trenutnu stranicu te varijablu korisnik na ime trenutno ulogiranog korisnika*/
     $linkLogo = 'home.php';
@@ -129,118 +132,20 @@ if (isset($_POST["odjava"])){
             </section>
 
             <div class="d-flex flex-row flex-wrap gap-3">
-                
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/chard 2.svg" alt="chard" class="h-auto mb-2">
-                            <strong>Blitva</strong>
-                            <p class="mb-1 text-secondary">početnička razina</p>
-                        </span>
-                    </section>
-        
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/garlic.svg" alt="garlic" class=" h-auto mb-2">
-                            <strong>Češnjak</strong>
-                            <p class="mb-1 text-secondary">početnička razina</p>
-                        </span>
-                    </section>
-                
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/cauliflower.svg" alt="cauliflower" class=" h-auto mb-2">
-                            <strong>Cvjetača</strong>
-                            <p class="mb-1 text-secondary">napredna razina</p>
-                        </span>
-                    </section>
+                    <?php
+                        require_once "../connect.php";
+                        $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
 
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/tomato-1.svg" alt="tomato" class=" h-auto mb-2">
-                            <strong>Cherry rajčica</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/beans 1.svg" alt="beans" class=" h-auto mb-2">
-                            <strong>Grah - niski</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/strawberry.svg" alt="strawberry" class=" h-auto mb-2">
-                            <strong>Jagoda</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-                    
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/potatos.svg" alt="potatos" class=" h-auto mb-2">
-                            <strong>Krumpir</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/cucumber.svg" alt="cucumber" class=" h-auto mb-2">
-                            <strong>Krastavac</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/onion.svg" alt="onion" class=" h-auto mb-2">
-                            <strong>Luk</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/carrot.svg" alt="carrot" class=" h-auto mb-2">
-                            <strong>Mrkva</strong>
-                            <p class="mb-1 text-secondary">početnička razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/pepper.svg" alt="pepper" class=" h-auto mb-2">
-                            <strong>Paprika</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/parsley 2.svg" alt="parsley" class=" h-auto mb-2">
-                            <strong>Peršin</strong>
-                            <p class="mb-1 text-secondary">početnička razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/tomato-1.svg" alt="tomato" class=" h-auto mb-2">
-                            <strong>Rajčica</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
-
-                    <section class="d-flex mt-5 col-2">
-                        <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" role="button">
-                            <img src="../assets/fruit-images/lettuce 2.svg" alt="lettuce" class=" h-auto mb-2">
-                            <strong>Zelena salata</strong>
-                            <p class="mb-1 text-secondary">srednja razina</p>
-                        </span>
-                    </section>
+                        foreach ($rows_plants as $row_plant) {
+                            echo "<section class='d-flex mt-5 col-2'>";
+                            echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' role='button'>";
+                            echo "<img src='../assets/vegetableIcons/".$row_plant['ikonica_biljke']."' alt='chard' class='h-auto mb-2'></img>";
+                            echo "<strong>". $row_plant['ime'] . "</strong>";
+                            echo "<p class='mb-1 text-secondary'>". $row_plant['razina'] ."</p>";
+                            echo "</span>";
+                            echo "</section>";
+                        }
+                    ?>
             </div>          
         </div>
 
