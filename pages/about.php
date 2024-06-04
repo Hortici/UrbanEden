@@ -139,9 +139,9 @@ if (isset($_POST["odjava"])) {
             $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
 
             if ($rows_plants) {
-                echo "<p>Uspjelo</p>";
+                echo "Uspjelo";
             } else {
-                echo "<p>Nije Uspjelo</p>";
+                echo "Nije Uspjelo";
             }
 
             foreach ($rows_plants as $row_plant) {
