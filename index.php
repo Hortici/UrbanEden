@@ -105,6 +105,7 @@ if (isset($_SESSION["korisnik"])) {
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
                   $_SESSION["korisnik"] = $korisnik["ime"];
+                  mysqli_close();
                   redirect("pages/home.php");
                   /* index page
                       <a href="logout.php" class="btn btn-warning">Log out</a>
@@ -213,6 +214,7 @@ te sprema poruke u taj array*/
                   mysqli_stmt_bind_param($stmt, "sss", $ime2, $email2, $lozinkaHash2);
                   mysqli_stmt_execute($stmt);
                   echo "<div class='alert alert-success'> Registriran si!</div>";
+                  mysqli_close();
               } else {
                   /*Unos podatak nije bio uspješan*/
                   die("Registracija nije uspjela");
