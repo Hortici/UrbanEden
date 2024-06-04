@@ -136,8 +136,13 @@ if (isset($_POST["odjava"])) {
             <?php
             echo "Nije Uspjelo";
             //require_once "../connect.php";
-            require_once($_SERVER['DOCUMENT_ROOT']."/connect.php");
-            $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
+
+            try {
+                require_once($_SERVER['DOCUMENT_ROOT']."/connect.php");
+                $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
+            }catch (Exception $e){
+                echo $e->getMessage();
+            }
 
             echo "Uspjelo";
 
