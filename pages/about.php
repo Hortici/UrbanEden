@@ -40,10 +40,6 @@ if (isset($_POST["odjava"])){
     <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
-    <!-- support for IE -->
-    <script src="node_modules/gridstack/dist/es5/gridstack-poly.js"></script>
-    <script src="node_modules/gridstack/dist/es5/gridstack-all.js"></script>
-
     <!--Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -135,6 +131,12 @@ if (isset($_POST["odjava"])){
                     <?php
                         require_once "../connect.php";
                         $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
+
+                        if($rows_plants){
+                            echo "<script> alert('Dohvaceno')</script>";
+                        }else{
+                            echo "<script> alert('Nije dohvaceno')</script>";
+                        }
 
                         foreach ($rows_plants as $row_plant) {
                             echo "<section class='d-flex mt-5 col-2'>";
