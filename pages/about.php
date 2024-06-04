@@ -135,7 +135,8 @@ if (isset($_POST["odjava"])) {
         <div class="d-flex flex-row flex-wrap gap-3">
             <?php
             echo "Nije Uspjelo";
-            require_once "../connect.php";
+            //require_once "../connect.php";
+            require_once($_SERVER['DOCUMENT_ROOT']."/connect.php");
             $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
 
             echo "Uspjelo";
