@@ -128,6 +128,7 @@ if (isset($_POST["odjava"])){
             </section>
 
             <div class="d-flex flex-row flex-wrap gap-3">
+                <?php echo "Nije Uspjelo";?>
                     <?php
                         require_once "../connect.php";
                         $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
