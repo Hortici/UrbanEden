@@ -133,16 +133,12 @@ if (isset($_POST["odjava"])) {
         </section>
 
         <div class="d-flex flex-row flex-wrap gap-3">
-            <?php echo "Nije Uspjelo"; ?>
             <?php
+            echo "Nije Uspjelo";
             require_once "../connect.php";
             $rows_plants = mysqli_query($connected, "SELECT * FROM biljke_info ORDER BY id DESC");
 
-            if ($rows_plants) {
-                echo "Uspjelo";
-            } else {
-                echo "Nije Uspjelo";
-            }
+            echo "Uspjelo";
 
             foreach ($rows_plants as $row_plant) {
                 echo "<section class='d-flex mt-5 col-2'>";
