@@ -290,31 +290,6 @@ te sprema poruke u taj array*/
       </div>
     <div class="right container-xlg rounded-3">
       <img src="assets/images/Gardening-rafiki 1.svg" class="img-fluid" alt="Gardening picture">
-        <?php
-
-        //require_once "../connect.php";
-
-        try {
-            require_once "connect.php";
-            if (isset($connected)) {
-                $sql = "SELECT * FROM biljke_info ORDER BY id DESC";
-                $rows_plants = mysqli_query($connected, $sql);
-
-                foreach ($rows_plants as $row_plant) {
-                    echo "<section class='d-flex mt-5 col-2'>";
-                    echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' role='button'>";
-                    echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='chard' class='h-auto mb-2'></img>";
-                    echo "<strong>" . $row_plant['ime'] . "</strong>";
-                    echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
-                    echo "</span>";
-                    echo "</section>";
-                }
-                mysqli_close($connected);
-            }
-        }catch (Exception $e){
-            echo $e->getMessage();
-        }
-        ?>
     </div>
   </div>
       <!-- Objašnjeni proces stranice -->
