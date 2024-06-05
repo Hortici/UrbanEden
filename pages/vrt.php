@@ -62,7 +62,7 @@ if (isset($_POST["odjava"])){
                 <!--Nav Extended-->
                 <ul class="nav nav-pills justify-content-center align-items-center">
                     <li class="nav-item active"><a class="nav-link" href="vrt.php">Vrt</a></li>
-                    <li class="nav-item"><a class="nav-link" href="../about.php">Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.php">Info</a></li>
                     <li class="nav-item"><a class="nav-link" href="calendar.php">Kalendar</a></li>
                     <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="offcanvas"
                     data-bs-target="#offcanvasExample"><a><i class="bi bi-person-fill fs-2"></i></a></button></li>
@@ -146,7 +146,7 @@ if (isset($_POST["odjava"])){
             <span class="float-start mb-2">
                 <ul class="nav d-flex flex-column align-items-center justify-content-start">
                     <li class="nav-link px-5 text-start"><a href="vrt.html" class="nav-link text-white p-0">Vrt</a></li>
-                    <li class="nav-link px-5"><a href="../about.php" class="nav-link text-white p-0">Info</a></li>
+                    <li class="nav-link px-5"><a href="about.php" class="nav-link text-white p-0">Info</a></li>
                     <li class="nav-link px-5"><a href="calendar.php" class="nav-link text-white p-0">Kalendar</a></li>
                 </ul>
             </span>
