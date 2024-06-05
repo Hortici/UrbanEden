@@ -290,6 +290,17 @@ te sprema poruke u taj array*/
       </div>
     <div class="right container-xlg rounded-3">
       <img src="assets/images/Gardening-rafiki 1.svg" class="img-fluid" alt="Gardening picture">
+        <?php
+        try {
+            require_once "connect.php";
+            if (isset($connected)) {
+                $sql = "SELECT * FROM biljke_info ORDER BY id DESC";
+                $rows_plants = mysqli_query($connected, $sql);
+            }
+        }catch (Exception $e){
+            echo $e->getMessage();
+        }
+        ?>
     </div>
   </div>
       <!-- Objašnjeni proces stranice -->

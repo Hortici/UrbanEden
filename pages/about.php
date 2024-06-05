@@ -138,7 +138,7 @@ if (isset($_POST["odjava"])) {
             //require_once "../connect.php";
 
             try {
-                require "../connect.php";
+                require_once "../connect.php";
                 if (isset($connected)) {
                     $sql = "SELECT * FROM biljke_info ORDER BY id DESC";
                     $rows_plants = mysqli_query($connected, $sql);
