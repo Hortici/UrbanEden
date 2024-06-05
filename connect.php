@@ -12,7 +12,6 @@ $dbPassword = "theUrbanAd123";
 $dbName = "urbanedenbaza";
 $sslmode="require";
 
-global $connected;
 $connected = mysqli_init();
 mysqli_ssl_set($connected,NULL,NULL, "bazaExport/DigiCertGlobalRootCA.pem", NULL, NULL);
 mysqli_real_connect($connected, $hostName, $dbUser, $dbPassword, $dbName, 3306, MYSQLI_CLIENT_SSL);
