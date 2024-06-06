@@ -1,3 +1,4 @@
+
 <?php
 /*Započinje sesiju na trenutnoj stranici*/
 session_start();
@@ -116,23 +117,47 @@ if (isset($_POST["odjava"])){
                 <div class="w-75">
                     <form name="layoutForm" id="layoutForm" action="thirdStep.php" method="post">
                         <div class="label my-4">
-                            <label for="label" class="form-label">Odaberite dimenzije:</label>
+                            <label for="label" class="form-label">Odaberite raspodjelu sekcija u vrtu:</label>
                         </div>
-                        <div class="dimensions d-flex flex-row justify-content-between mb-5">
-                            <div class="firstPick d-flex flex-column p-2">
-                                <span class="ms-2 mb-5">
-                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="small" required>
-                                    <label for="small" class="form-check-label">1x2 m</label>
+                        <div class="dimensions d-flex flex-row flex-wrap justify-content-start mb-5">
+                            <div class="firstPick d-flex flex-column p-2 me-4">
+                                <span class="ms-2 mb-3">
+                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="3r3cell" required>
+                                    <label for="" class="form-check-label"></label>
                                 </span>
-                                <img src="../../assets/layout-pictures/1x2m.svg" alt="60x20 placeholder">
+                                <img src="../../assets/layout-pictures/3row-3cell.svg" alt="60x20 placeholder">
                             </div>
                             
-                            <div class="secondPick d-flex flex-column p-2">
-                                <span class="ms-2 mb-5">
-                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="big" required>
-                                    <label for="big" class="form-check-label">3x4 m</label>
+                            <div class="secondPick d-flex flex-column p-2 me-4">
+                                <span class="ms-2 mb-3">
+                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="4r" required>
+                                    <label for="" class="form-check-label"></label>
                                 </span>
-                                <img src="../../assets/layout-pictures/3x4m.svg" alt="80x60 placeholder">
+                                <img src="../../assets/layout-pictures/4row.svg" alt="80x60 placeholder">
+                            </div>
+
+                            <div class="thirdPick d-flex flex-column p-2">
+                                <span class="ms-2 mb-3">
+                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="2r3col" required>
+                                    <label for="" class="form-check-label"></label>
+                                </span>
+                                <img src="../../assets/layout-pictures/2row-3col.svg" alt="80x60 placeholder">
+                            </div>
+
+                            <div class="forthPick d-flex flex-column p-2 me-4">
+                                <span class="ms-2 mb-3">
+                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="3col" required>
+                                    <label for="" class="form-check-label"></label>
+                                </span>
+                                <img src="../../assets/layout-pictures/3col.svg" alt="80x60 placeholder">
+                            </div>
+
+                            <div class="fifthPick d-flex flex-column p-2 me-4">
+                                <span class="ms-2 mb-3">
+                                    <input class="m-1 form-check-input place" type="radio" name="layout" id="2r1b" required>
+                                    <label for="" class="form-check-label"></label>
+                                </span>
+                                <img src="../../assets/layout-pictures/2row-1block.svg" alt="80x60 placeholder">
                             </div>
                             
                             
