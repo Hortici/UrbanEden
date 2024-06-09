@@ -18,7 +18,7 @@ function redirect($url)
 
 if (isset($_SESSION["korisnik"])) {
     /*Postavlja varijablu linkLogo na trenutnu stranicu te varijablu korisnik na ime trenutno ulogiranog korisnika*/
-    $linkLogo = '../home.php';
+    $linkLogo = 'home.php';
     $korisnik = $_SESSION["korisnik"];
     $korId = $_SESSION["id"];
 } else {

@@ -120,7 +120,8 @@ if (isset($_POST["odjava"])) {
                         <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                             <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                                 <div class="px-2" style="width: fit-content;">
-                                    <a href="#"><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i
+                                                class="bi bi-plus-square fs-1 text-black"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -218,7 +219,201 @@ if (isset($_POST["odjava"])) {
         echo $e->getMessage();
     }
     ?>
-    <!--Sažetak tablica 4row-->
+
+    <div class="modal fade" id="addPlantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Dodavanje biljke</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2 mb-3" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success mb-3" type="submit">Search</button>
+                    </form>
+                    <!--Recommended plants-->
+                    <h4>Preporučene biljke</h4>
+                    <div class="d-grid mb-5">
+                        <div class="row row-cols-3">
+                            <?php
+                            //require_once "../connect.php";
+                            try {
+                                require_once("connect.php");
+                                if (isset($connected)) {
+                                    $sql = "SELECT * FROM biljke_info ORDER BY id DESC LIMIT 3";
+                                    $rows_plants = mysqli_query($connected, $sql);
+
+                                    foreach ($rows_plants as $row_plant) {
+                                        echo "<section id='plant' class='d-flex mt-3 col'>";
+                                        echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' data-bs-toggle='modal' data-bs-target='#eachPlantModal' role='button'>";
+                                        echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='" . $row_plant['ime'] . "' class='h-auto mb-2'>";
+                                        echo "<strong>" . $row_plant['ime'] . "</strong>";
+                                        echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
+                                        echo "</span>";
+                                        echo "</section>";
+                                    }
+                                }
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
+                        </div>
+
+                    </div>
+                    <!--All plants-->
+                    <h4>Sve biljke</h4>
+                    <div class="d-grid gap-2 mb-5">
+                        <div class="row row-cols-3">
+                            <?php
+                            //require_once "../connect.php";
+                            try {
+                                require_once("connect.php");
+                                if (isset($connected)) {
+                                    $sql = "SELECT * FROM biljke_info ORDER BY id DESC";
+                                    $rows_plants = mysqli_query($connected, $sql);
+
+                                    foreach ($rows_plants as $row_plant) {
+                                        echo "<section id='plant' class='d-flex mt-3 col'>";
+                                        echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' data-bs-toggle='modal' data-bs-target='#eachPlantModal' role='button'>";
+                                        echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='" . $row_plant['ime'] . "' class='h-auto mb-2'>";
+                                        echo "<strong>" . $row_plant['ime'] . "</strong>";
+                                        echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
+                                        echo "</span>";
+                                        echo "</section>";
+                                    }
+                                    mysqli_close($connected);
+                                }
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Each Modal-->
+    <div class="modal fade" id="eachPlantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <i role="button" class="bi bi-arrow-left" data-bs-toggle="modal"
+                       data-bs-target="#addPlantModal"></i>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                    <div class="top">
+                        <div class="name">
+                            <h4 id="name" class="mb-1">Blitva</h4>
+                            <p id="lvl" class="mb-3 text-secondary">početnička razina</p>
+                        </div>
+                        <div class="data d-grid">
+                            <div class="row row-cols-4">
+                                <div class="col-7">
+                                    <p id="toxic" class="p-1 bg-danger-subtle rounded-2 col-4">neotrovno</p>
+                                    <p id="calendarPeriod" class="p-1 bg-success-subtle rounded-2 col-8">svibanj,
+                                        srpanj-rujan</p>
+                                    <div id="light-harvest" class="d-flex flex-row">
+                                            <span class="d-flex flex-row align-items-center rounded-start bg-warning mb-4 me-2 col-6">
+                                                <i class="bi bi-sun p-2 mb-1"></i>
+                                                <p class="mb-1 p-2" id="reqLight">2-4 sata <br>6+ sati</p>
+                                            </span>
+                                        <span class="d-flex flex-row align-items-center rounded-end bg-warning mb-4 ms-2 col-6">
+                                                <i class="bi bi-hand-index p-2 mb-1"></i>
+                                                <p class="mb-1 p-2" id="harvestTime">30-60 dana</p>
+                                            </span>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <img src="" alt="">
+                                </div>
+
+                                <table class="table px-2">
+
+
+                                    <tbody>
+                                    <tr class="row justify-content-center">
+                                        <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                            <div class="rounded-5 bg-secondary px-2" style="width: fit-content;">
+                                                <i class="bi bi-droplet-fill fs-4 text-white"></i>
+                                            </div>
+                                            <div class="px-2">
+                                                <span id="waterPeriod" class="fs-5 fw-bold">2 puta tjedno</span>
+                                            </div>
+                                        </td>
+
+                                        <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                            <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                                <i class="bi bi-droplet-fill fs-4 text-white"></i>
+                                            </div>
+                                            <div class="px-2">
+                                                <span id="turnoverPeriod" class="fs-5 fw-bold">svakih 14 dana</span>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr class="row">
+                                        <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                            <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                                <i class="bi bi-scissors fs-4 text-white"></i>
+                                            </div>
+                                            <div class="px-2">
+                                                <span id="cutPeriod" class="fs-5 fw-bold">nema rezanja</span>
+                                            </div>
+                                        </td>
+
+                                        <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                            <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                                <i class="bi bi-scissors fs-4 text-white"></i>
+                                            </div>
+                                            <div class="px-2">
+                                                <span id="fertilizePeriod" class="fs-5 fw-bold">2 puta tjedno</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <div class="moreInfo col-12 mb-5">
+                                        <span class="d-flex flex-row">
+                                            <strong>Dobri susjedi:</strong>
+                                            <p class="ms-2 col-5" id="goodNeighbour">rajčica, cvjetača</p>
+                                        </span>
+                                    <span class="d-flex flex-row">
+                                            <strong>Loši susjedi:</strong>
+                                            <p class="ms-2 col-5" id="badNeighbour">špinat</p>
+                                        </span>
+                                    <span class="d-flex flex-row">
+                                            <strong>Broj sadnica u redu od 1m:</strong>
+                                            <p class="ms-2 col-5" id="quantityRow">5</p>
+
+                                        </span>
+                                    <span class="d-flex flex-row">
+                                            <strong>Broj sadnica u stupcu od 1m:</strong>
+                                            <p class="ms-2 col-5" id="quantityCol">2</p>
+
+                                        </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="d-flex flex-column justify-self-center w-50">
+                        <button type="button" id="more" class="btn btn-secondary">Više informacija</button>
+                        <button type="button" id="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </main>
 
