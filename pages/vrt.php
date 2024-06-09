@@ -415,8 +415,10 @@ if (isset($_POST["odjava"])) {
                     }
                     ?>
                     <div class="d-flex flex-column justify-self-center w-50">
-                        <button type="button" id="more" class="btn btn-secondary">Više informacija</button>
-                        <button type="button" id="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
+                        <form>
+                            <button type="submit" id="more" class="btn btn-secondary">Više informacija</button>
+                            <button type="submit" id="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
+                        </form>
                     </div>
                 </div>
             </div>
