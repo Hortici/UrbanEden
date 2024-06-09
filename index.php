@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Function to handle redirection
 function redirect($url)
@@ -105,6 +107,7 @@ if (isset($_SESSION["korisnik"])) {
           if($korisnik){
               if(password_verify($lozinka, $korisnik["password"])){
                   $_SESSION["korisnik"] = $korisnik["ime"];
+                  $_SESSION["id"] = $korisnik["id"];
                   mysqli_close($connected);
                   redirect("pages/home.php");
                   /* index page

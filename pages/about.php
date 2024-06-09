@@ -144,7 +144,7 @@ if (isset($_POST["odjava"])) {
                     foreach ($rows_plants as $row_plant) {
                         echo "<section class='d-flex mt-5 col-2'>";
                         echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' role='button'>";
-                        echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='chard' class='h-auto mb-2'></img>";
+                        echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='chard' class='h-auto mb-2'>";
                         echo "<strong>" . $row_plant['ime'] . "</strong>";
                         echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
                         echo "</span>";
