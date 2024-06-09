@@ -21,7 +21,7 @@ if(isset($_SESSION["korisnik"])){
   <!--Font Awesome-->
   <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   <!--Link Bootstrap-->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <!--Link Boostrap Icon Font-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
@@ -33,6 +33,8 @@ if(isset($_SESSION["korisnik"])){
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+
+    
 </head>
 <body>
 <?php
@@ -95,6 +97,7 @@ if (isset($_POST["odjava"])){
 </header>
 
     <main class="w-75 justify-content-center mx-auto">
+    <script src="modal.js"></script>
         <!--Sažetak tablica-->
         <h2>Moj treći vrt</h2>
         <!--Sample za vrt "4row"-->
@@ -105,7 +108,7 @@ if (isset($_POST["odjava"])){
                     <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                         <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                             <div class="px-2" style="width: fit-content;">
-                                <a href=""><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i class="bi bi-plus-square fs-1 text-black"></i></a>
                             </div>
                             
                         </td>
@@ -114,7 +117,7 @@ if (isset($_POST["odjava"])){
                     <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                         <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                             <div class="px-2" style="width: fit-content;">
-                                <a href=""><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i class="bi bi-plus-square fs-1 text-black"></i></a>
                             </div>                      
                         </td>
                     </tr>
@@ -122,7 +125,7 @@ if (isset($_POST["odjava"])){
                     <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                         <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                             <div class="px-2" style="width: fit-content;">
-                                <a href=""><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i class="bi bi-plus-square fs-1 text-black"></i></a>
                             </div>
                             
                         </td>
@@ -131,7 +134,7 @@ if (isset($_POST["odjava"])){
                     <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                         <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                             <div class="px-2" style="width: fit-content;">
-                                <a href=""><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i class="bi bi-plus-square fs-1 text-black"></i></a>
                             </div>
                             
                         </td>
@@ -139,6 +142,289 @@ if (isset($_POST["odjava"])){
                 </tbody>
             </table>
         </div>
+    <!--Add plant modal-->
+    <div class="modal fade" id="addPlantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Dodavanje biljke</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            
+                <form class="d-flex" role="search">
+                <input class="form-control me-2 mb-3" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success mb-3" type="submit">Search</button>
+                </form>
+                <!--Recommended plants-->
+                <h4>Preporučene biljke</h4>
+                <div class="d-grid mb-5">
+                    <div class="row row-cols-3">
+                        <section id="plant blitva" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/chard 2.svg" alt="chard" class="h-auto mb-2">
+                                <strong>Blitva</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+            
+                        <section id="plant cesnjak" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/garlic.svg" alt="garlic" class=" h-auto mb-2">
+                                <strong>Češnjak</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+                    
+                        <section id="plant persin" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/parsley 2.svg" alt="parsley" class=" h-auto mb-2">
+                                <strong>Peršin</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+                    </div>
+                        
+                </div>    
+                <!--All plants-->
+                <h4>Sve biljke</h4>
+                <div class="d-grid gap-2 mb-5">
+                    <div class="row row-cols-3">
+                        <section id="plant blitva" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/chard 2.svg" alt="chard" class="h-auto mb-2">
+                                <strong>Blitva</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+            
+                        <section id="plant cesnjak" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/garlic.svg" alt="garlic" class=" h-auto mb-2">
+                                <strong>Češnjak</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+                    
+                        <section id="plant cvjetaca" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/cauliflower.svg" alt="cauliflower" class=" h-auto mb-2">
+                                <strong>Cvjetača</strong>
+                                <p class="mb-1 text-secondary">napredna razina</p>
+                            </span>
+                        </section>
+                    </div>
+                    <div class="row row-cols-3">
+                        <section id="plant cherry" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/tomato-1.svg" alt="tomato" class=" h-auto mb-2">
+                                <strong>Cherry rajčica</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant grah" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/beans 1.svg" alt="beans" class=" h-auto mb-2">
+                                <strong>Grah - niski</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant jagoda" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/strawberry.svg" alt="strawberry" class=" h-auto mb-2">
+                                <strong>Jagoda</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+                    </div>
+                    <div class="row row-cols-3">
+                        <section id="plant krumpir" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/potatos.svg" alt="potatos" class=" h-auto mb-2">
+                                <strong>Krumpir</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant krastavac" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/cucumber.svg" alt="cucumber" class=" h-auto mb-2">
+                                <strong>Krastavac</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant luk" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/onion.svg" alt="onion" class=" h-auto mb-2">
+                                <strong>Luk</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+                    </div>
+                    <div class="row row-cols-3">
+                        <section id="plant mrkva" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/carrot.svg" alt="carrot" class=" h-auto mb-2">
+                                <strong>Mrkva</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant paprika" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/pepper.svg" alt="pepper" class=" h-auto mb-2">
+                                <strong>Paprika</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant persin" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/parsley 2.svg" alt="parsley" class=" h-auto mb-2">
+                                <strong>Peršin</strong>
+                                <p class="mb-1 text-secondary">početnička razina</p>
+                            </span>
+                        </section>
+                    </div>
+                    <div class="row row-cols-3">
+                        <section id="plant rajcica" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/tomato-1.svg" alt="tomato" class=" h-auto mb-2">
+                                <strong>Rajčica</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+
+                        <section id="plant salata" class="d-flex mt-3 col">
+                            <span class="col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center" data-bs-toggle="modal" data-bs-target="#eachPlantModal" role="button">
+                                <img src="../assets/fruit-images/lettuce 2.svg" alt="lettuce" class=" h-auto mb-2">
+                                <strong>Zelena salata</strong>
+                                <p class="mb-1 text-secondary">srednja razina</p>
+                            </span>
+                        </section>
+                    </div>                 
+                </div>
+                
+            
+            </div>
+        </div>
+        </div>
+    </div>
+    <!--Each Modal-->
+    <div class="modal fade" id="eachPlantModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+            <i role="button" class="bi bi-arrow-left" data-bs-toggle="modal" data-bs-target="#addPlantModal"></i>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <div class="top">
+                <div class="name">
+                    <h4 id="name" class="mb-1">Blitva</h4>
+                    <p id="lvl" class="mb-3 text-secondary">početnička razina</p>
+                </div>
+                <div class="data d-grid">
+                    <div class="row row-cols-4">
+                        <div class="col-7">
+                            <p id="toxic" class="p-1 bg-danger-subtle rounded-2 col-4">neotrovno</p>
+                            <p id="calendarPeriod" class="p-1 bg-success-subtle rounded-2 col-8">svibanj, srpanj-rujan</p>
+                            <div id="light-harvest" class="d-flex flex-row">
+                                <span class="d-flex flex-row align-items-center rounded-start bg-warning mb-4 me-2 col-6">
+                                    <i class="bi bi-sun p-2 mb-1"></i>
+                                    <p class="mb-1 p-2" id="reqLight">2-4 sata <br>6+ sati</p>
+                                </span>
+                                <span class="d-flex flex-row align-items-center rounded-end bg-warning mb-4 ms-2 col-6">
+                                    <i class="bi bi-hand-index p-2 mb-1"></i>                                    <p class="mb-1 p-2" id="harvestTime">30-60 dana</p>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col">
+                        <img src="" alt="">
+                        </div>
+
+                        <table class="table px-2">
+                
+
+                        <tbody>
+                            <tr class="row justify-content-center">
+                                <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                    <div class="rounded-5 bg-secondary px-2" style="width: fit-content;">
+                                        <i class="bi bi-droplet-fill fs-4 text-white"></i>
+                                    </div>
+                                    <div class="px-2"> 
+                                        <span id="waterPeriod" class="fs-5 fw-bold">2 puta tjedno</span>
+                                    </div>
+                                </td>
+
+                                <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                    <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                        <i class="bi bi-droplet-fill fs-4 text-white"></i>
+                                    </div>
+                                    <div class="px-2"> 
+                                        <span id="turnoverPeriod" class="fs-5 fw-bold">svakih 14 dana</span>
+                                    </div>
+                                </td>
+                                
+                            </tr>
+
+                            <tr class="row">
+                                <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                    <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                        <i class="bi bi-scissors fs-4 text-white"></i>
+                                    </div>
+                                    <div class="px-2"> 
+                                        <span id="cutPeriod" class="fs-5 fw-bold">nema rezanja</span>
+                                    </div>
+                                </td>
+
+                                <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
+                                    <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
+                                        <i class="bi bi-scissors fs-4 text-white"></i>
+                                    </div>
+                                    <div class="px-2"> 
+                                        <span id="fertilizePeriod" class="fs-5 fw-bold">2 puta tjedno</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="moreInfo col-12 mb-5">
+                        <span class="d-flex flex-row">
+                            <strong>Dobri susjedi:</strong> <p class="ms-2 col-5" id="goodNeighbour">rajčica, cvjetača</p>
+                        </span>
+                        <span class="d-flex flex-row">
+                            <strong>Loši susjedi:</strong>  <p class="ms-2 col-5" id="badNeighbour">špinat</p>
+                        </span>
+                        <span class="d-flex flex-row">
+                            <strong>Broj sadnica u redu od 1m:</strong> <p class="ms-2 col-5" id="quantityRow">5</p>
+
+                        </span>
+                        <span class="d-flex flex-row">
+                            <strong>Broj sadnica u stupcu od 1m:</strong> <p class="ms-2 col-5" id="quantityCol">2</p>
+
+                        </span>
+                    </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            
+            <div class="d-flex flex-column justify-self-center w-50">
+                <button type="button" id="more" class="btn btn-secondary">Više informacija</button>
+                <button type="button" id="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
     </main>
 
     <!-- Footer sa nav elementima i  copyrightom -->

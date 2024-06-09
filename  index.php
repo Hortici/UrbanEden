@@ -28,6 +28,10 @@ if(isset($_SESSION["korisnik"])){
   <script type="module" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule="" src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons/ionicons.js"></script>
 
+  
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
 </head>
 
 
@@ -312,14 +316,14 @@ te sprema poruke u taj array*/
       </div>
       <!-- Slike za objašnjeni proces -->
       <div class="slike d-flex flex-row justify-content-between fs-2 mt-3 h-50">
-        <div class="card h-25 w-25 ms-3 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/Seeding-bro.svg" alt="Planting a garden">
+        <div class="h-25 w-25 ms-1 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
+          <img src="assets/images/lp-pic1.svg" alt="Planting a garden">
         </div>
-        <div class="card h-25 w-25 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/potted plants-bro.svg" alt="potted plants">
+        <div class="h-25 w-25 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
+          <img src="assets/images/lp-pic2.svg" alt="potted plants">
         </div>
-        <div class="card h-25 w-25 me-3 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/Reminders-bro.svg" alt="Reminders">
+        <div class="h-25 w-25 me-1 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
+          <img src="assets/images/lp-pic3.svg" alt="Reminders">
         </div>
       </div>
     </div>
@@ -327,7 +331,7 @@ te sprema poruke u taj array*/
     <section class="my-5 py-5 d-flex flex-column justify-content-center align-items-center">
       <h2 class="fs-1"><strong>Zvuči dobro?</strong></h2>
       <p class="my-5 fs-4">Postani član UrbanEden zajednice!</p>
-      <button type="submit" name="registracija" class="btn btn-primary btn-success rounded-4 fs-4 px-4 py-3" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
+      <button type="submit" name="registracija" class="btn btn-primary rounded-4 fs-4 px-4 py-3" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
     </section>
     
 
