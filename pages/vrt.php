@@ -118,6 +118,7 @@ if (isset($_POST["odjava"])) {
         require_once("connect.php");
         if (isset($_POST["vrtId"]) && isset($connected)) {
             $vrtId = $_POST["vrtId"];
+            $_SESSION["vrtId2"] = $vrtId;
             $sql = "SELECT * FROM vrtovi WHERE id = $vrtId";
             $rows_gardens = mysqli_query($connected, $sql);
             $res = $rows_gardens->fetch_assoc();
@@ -132,8 +133,8 @@ if (isset($_POST["odjava"])) {
                         <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                             <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                                 <div class="px-2" style="width: fit-content;">
-                                    <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i
-                                                class="bi bi-plus-square fs-1 text-black"></i></a>
+                                    <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal">
+                                        <i class="bi bi-plus-square fs-1 text-black"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -444,14 +445,34 @@ if (isset($_POST["odjava"])) {
                                 ?>
                                 <form action="vrt.php" method="post">
                                     <input type="hidden" id="plantId" name="plantId" value="<?php echo $row_plant['id']?>">
+                                    <input type="hidden" id="vrtId2" name="vrtId2" value="">
                                     <button type="submit" id="add" name="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
                                 </form>
                             <?php }?>
                     </div>
                     <?php
-                    if (isset($_POST['more'])) {
-                        redirect('cropAbout.php');
-                    }
+                        if (isset($_POST['add'])) {
+                            try {
+                                require_once("connect.php");
+                                if (isset($connected)) {
+                                    $biljkaId = $_POST['plantId'];
+                                    $vrtId2 = $_SESSION['vrtId2'];
+                                    $sql = "UPDATE vrtovi SET biljka1=? WHERE id = $vrtId2";
+                                    $stmt = mysqli_stmt_init($connected);
+                                    $prepare = mysqli_stmt_prepare($stmt, $sql);
+                                    if ($prepare) {
+                                        mysqli_stmt_bind_param($stmt, "i", $biljkaId);
+                                        mysqli_stmt_execute($stmt);
+                                        //echo "<div class='alert alert-success'> Biljka unesena!</div>";
+                                    } else {
+                                        /*Unos podatak nije bio uspješan*/
+                                        die("Unos biljke nije uspio");
+                                    }
+                                }
+                            } catch (Exception $e) {
+                                echo $e->getMessage();
+                            }
+                        }
                     ?>
                 </div>
             </div>
