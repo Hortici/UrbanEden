@@ -142,13 +142,18 @@ if (isset($_POST["odjava"])) {
                     $rows_plants = mysqli_query($connected, $sql);
 
                     foreach ($rows_plants as $row_plant) {
+
                         echo "<section class='d-flex mt-5 col-2'>";
-                        echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' role='button'>";
+                        echo "<form name='". $row_plant['id'] ."' method='post' action='cropAbout.php'>";
+                        echo "<input type='hidden' name='plantId' value='". $row_plant['id'] ."'>";
+                        echo "<span onclick=\"this.closest('form').submit();\" class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' role='button'>";
                         echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='chard' class='h-auto mb-2'>";
                         echo "<strong>" . $row_plant['ime'] . "</strong>";
                         echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
                         echo "</span>";
+                        echo "</form>";
                         echo "</section>";
+
                     }
                     mysqli_close($connected);
                 }
