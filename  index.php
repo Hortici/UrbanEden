@@ -315,16 +315,14 @@ te sprema poruke u taj array*/
         </span>
       </div>
       <!-- Slike za objašnjeni proces -->
-      <div class="slike d-flex flex-row justify-content-between fs-2 mt-3 h-50">
-        <div class="h-25 w-25 ms-1 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
+      <div class="slike d-flex flex-row justify-content-center align-items-end mt-3 h-50">
+        
           <img src="assets/images/lp-pic1.svg" alt="Planting a garden">
-        </div>
-        <div class="h-25 w-25 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/lp-pic2.svg" alt="potted plants">
-        </div>
-        <div class="h-25 w-25 me-1 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/lp-pic3.svg" alt="Reminders">
-        </div>
+        
+          <img class="pb-1 me-3" src="assets/images/lp-pic2.svg" alt="potted plants">
+        
+          <img class="ms-4 mb-5 pb-3" src="assets/images/lp-pic3.svg" alt="Reminders">
+        
       </div>
     </div>
     <!-- Poziv na pridruživanje -->
