@@ -1,0 +1,6 @@
+[database connection]
+hostName = server-name
+dbUser = admin
+dbPassword = 12345
+dbName = urbaeden
+sslmode=require
