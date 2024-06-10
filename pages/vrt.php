@@ -344,14 +344,20 @@ if (isset($_POST["odjava"])){
                             </div>
                         </div>
                         <div class="col">
-                        <img src="" alt="">
+                            <div class="row d-flex flex-row justify-content-center align-items-center">
+                                <img class="w-50" src="../assets/fruit-images/chard 2.svg" alt="slika blitve">
+                                <p class="w-50 m-0">80 cm</p>
+                            </div>
+                            <div class="row ps-3">
+                                <p>40 cm</p>
+                            </div>
                         </div>
 
                         <table class="table px-2">
                 
 
                         <tbody>
-                            <tr class="row justify-content-center">
+                            <tr class="row justify-content-center px-3">
                                 <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
                                     <div class="rounded-5 bg-secondary px-2" style="width: fit-content;">
                                         <i class="bi bi-droplet-fill fs-4 text-white"></i>
@@ -372,7 +378,7 @@ if (isset($_POST["odjava"])){
                                 
                             </tr>
 
-                            <tr class="row">
+                            <tr class="row px-3">
                                 <td class="bg-success-subtle col rounded-3 m-2 p-2 d-inline-flex align-items-center text-center">
                                     <div class="rounded-5 bg-secondary px-2 " style="width: fit-content;">
                                         <i class="bi bi-scissors fs-4 text-white"></i>
