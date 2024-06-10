@@ -11,6 +11,17 @@ if (isset($_SESSION["korisnik"])) {
 } else {
     $linkLogo = 'index.php';
 }
+function redirect($url)
+{
+    // Ensure headers are not already sent
+    if (!headers_sent()) {
+        header("Location: $url");
+        exit();
+    } else {
+        echo "<script type='text/javascript'>window.location.href='$url';</script>";
+        exit();
+    }
+}
 /*Ukoliko korisnik pritisne gumb odjava sesija se gasi te se korisnik preusmjerava na index.php stranicu*/
 if (isset($_POST["odjava"])) {
     session_destroy();
@@ -24,6 +35,7 @@ if (isset($_POST["odjava"])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Urban Eden</title>
 
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
     <!--Link personal css-->
     <link rel="stylesheet" href="../style.css">
     <!--Font Awesome-->
@@ -276,11 +288,14 @@ if (isset($_POST["odjava"])) {
 
                                     foreach ($rows_plants as $row_plant) {
                                         echo "<section id='plant' class='d-flex mt-3 col'>";
+                                        //echo "<form name='". $row_plant['id'] ."' method='post' action='vrt.php' onclick=\"this.closest('form').submit();\">";
+                                        echo "<input type='hidden' name='plantId' value='". $row_plant['id'] ."'>";
                                         echo "<span class='col p-3 nav-link bg-secondary-subtle rounded-3 d-flex flex-column justify-content-center align-items-center' data-bs-toggle='modal' data-bs-target='#eachPlantModal' role='button'>";
                                         echo "<img src='../assets/vegetableIcons/" . $row_plant['ikonica_biljke'] . "' alt='" . $row_plant['ime'] . "' class='h-auto mb-2'>";
                                         echo "<strong>" . $row_plant['ime'] . "</strong>";
                                         echo "<p class='mb-1 text-secondary'>" . $row_plant['razina'] . "</p>";
                                         echo "</span>";
+                                        //echo "</form>";
                                         echo "</section>";
                                     }
 
@@ -311,6 +326,7 @@ if (isset($_POST["odjava"])) {
                     try {
                         require_once("connect.php");
                         if (isset($connected)) {
+                            //$plantId = $_POST['plantId'];
                             $sql = "SELECT * FROM biljke_info WHERE id = '21'";
                             $rows_plants = mysqli_query($connected, $sql);
 
@@ -415,11 +431,28 @@ if (isset($_POST["odjava"])) {
                     }
                     ?>
                     <div class="d-flex flex-column justify-self-center w-50">
-                        <form>
-                            <button type="submit" id="more" class="btn btn-secondary">Više informacija</button>
-                            <button type="submit" id="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
-                        </form>
+                            <?php
+                            foreach ($rows_plants as $row_plant) {
+                            ?>
+                                <form action="cropAbout.php" method="post">
+                                    <button type="submit" id="more" name="more" class="btn btn-secondary">Više informacija</button>
+                                    <input type="hidden" id="plantId" name="plantId" value="<?php echo $row_plant['id']?>">
+                                </form>
+                            <?php }?>
+                            <?php
+                            foreach ($rows_plants as $row_plant) {
+                                ?>
+                                <form action="vrt.php" method="post">
+                                    <input type="hidden" id="plantId" name="plantId" value="<?php echo $row_plant['id']?>">
+                                    <button type="submit" id="add" name="add" class="btn btn-primary py-3 px-4 mt-4">Dodaj u vrt</button>
+                                </form>
+                            <?php }?>
                     </div>
+                    <?php
+                    if (isset($_POST['more'])) {
+                        redirect('cropAbout.php');
+                    }
+                    ?>
                 </div>
             </div>
         </div>

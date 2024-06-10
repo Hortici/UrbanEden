@@ -155,24 +155,36 @@ if (isset($_POST["odjava"])){
                 </ul>
                 <!--Article-->
                 <article class="d-flex flex-column mx-auto justify-content-center align-items-start w-75 mt-5 px-5">
-                    <h3>Temperatura</h3>
-                    <p><?php echo $row_plant['temperatura']; ?></p>
-                    <h3 class="mt-4">Voda</h3>
-                    <p><?php echo $row_plant['voda']; ?></p>
-                    <h3 class="mt-4">Tlo</h3>
-                    <p><?php echo $row_plant['tlo']; ?>.</p>
-                    <h3 class="mt-4">Plodored</h3>
-                    <p><?php echo $row_plant['plodored']; ?></p>
-                    <h3 class="mt-4">Okopavanje</h3>
-                    <p><?php echo $row_plant['okapanje']; ?></p>
-                    <h3 class="mt-4">Gnojidba</h3>
-                    <p><?php echo $row_plant['gnojidba']; ?></p>
-                    <h3 class="mt-4">Sjetva/sadnja</h3>
-                    <p><?php echo $row_plant['sjetva_sadnja']; ?></p>
-                    <h3 class="mt-4">Njega</h3>
-                    <p><?php echo $row_plant['njega']; ?></p>
-                    <h3 class="mt-4">Otrovnost</h3>
-                    <p><?php echo $row_plant['otrovnost']; ?></p>
+                    <div id="uvjeti">
+                        <h3>Temperatura</h3>
+                        <p><?php echo $row_plant['temperatura']; ?></p>
+                        <h3 class="mt-4">Voda</h3>
+                        <p><?php echo $row_plant['voda']; ?></p>
+                        <h3 class="mt-4">Tlo</h3>
+                        <p><?php echo $row_plant['tlo']; ?>.</p>
+                        <h3 class="mt-4">Plodored</h3>
+                        <p><?php echo $row_plant['plodored']; ?></p>
+                        <h3 class="mt-4">Okopavanje</h3>
+                        <p><?php echo $row_plant['okapanje']; ?></p>
+                        <h3 class="mt-4">Gnojidba</h3>
+                        <p><?php echo $row_plant['gnojidba']; ?></p>
+                        <h3 class="mt-4">Sjetva/sadnja</h3>
+                        <p><?php echo $row_plant['sjetva_sadnja']; ?></p>
+                        <h3 class="mt-4">Njega</h3>
+                        <p><?php echo $row_plant['njega']; ?></p>
+                        <h3 class="mt-4">Otrovnost</h3>
+                        <p><?php echo $row_plant['otrovnost']; ?></p>
+                    </div>
+                    <!--Zdravlje-->
+                    <div id="zdravlje" class="d-flex flex-column justify-content-center mt-4">
+                        <h3>Lisne uši</h3>
+                        <p><?php echo $row_plant['zdravnje']; ?></p>
+                        <img src="../assets/images/usi-bolest.svg" alt="usi bolest">
+                    </div>
+                    <!--Berba-->
+                    <div id="berba" class="mt-5">
+                        <p><?php echo $row_plant['berba']; ?></p>
+                    </div>
                 </article>
             <?php
             }

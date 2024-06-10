@@ -280,62 +280,60 @@ te sprema poruke u taj array*/
   <!-- Kraj modalnog dijela registracije korisnika -->
 
 
-<!-- Glavni sadržaj stranice -->  
-  <div class="opis d-flex flex-row">
-    <div class="left w-50 m-5 flex-column container-fluid mh-50">
-      <h1>Tvoj Vrtlarski pomoćnik</h1>
-      <br>
-      <p class="my-5 fs-4">Želiš imati svoj vrt, ali ne znaš gdje početi? <br>
-        UrbanEden ti olakšava prvi korak.
-      </p>
-      <p class="my-5 fs-6 ">Sve osnovne informacije o uzgoju biljaka na jednom mjestu.
-      </p>
+<!-- Glavni sadržaj stranice -->
+      <div class="opis d-flex flex-row">
+          <div class="left w-50 m-5 flex-column container-fluid mh-50">
+              <h1>Tvoj Vrtlarski pomoćnik</h1>
+              <br>
+              <p class="my-5 fs-4">Želiš imati svoj vrt, ali ne znaš gdje početi? <br>
+                  UrbanEden ti olakšava prvi korak.
+              </p>
+              <p class="my-5 fs-6 ">Sve osnovne informacije o uzgoju biljaka na jednom mjestu.
+              </p>
+          </div>
+          <div class="right container-xlg rounded-3">
+              <img src="assets/images/Gardening-rafiki 1.svg" class="img-fluid" alt="Gardening picture">
+          </div>
       </div>
-    <div class="right container-xlg rounded-3">
-      <img src="assets/images/Gardening-rafiki 1.svg" class="img-fluid" alt="Gardening picture">
-    </div>
-  </div>
       <!-- Objašnjeni proces stranice -->
-    <div class="processSumUp d-flex flex-column my-5 py-5">
-      <div class="naslovi d-flex flex-row justify-content-between">
+      <div class="processSumUp d-flex flex-column my-5 py-5">
+          <div class="naslovi d-flex flex-row justify-content-between">
         <span class="px-2 mx-3 col-3 fs-5">
           <h3 class="mb-4">
             1. Zasadi vrt
           </h3>
           <p>Selekcija biljaka koja odgovara tvojim uvjetima.</p>
         </span>
-        <span class="px-2 mx-3 col-3 fs-5">
+              <span class="px-2 mx-3 col-3 fs-5">
           <h3 class="mb-4">
             2. Upoznaj biljke
           </h3>
           <p>Osnovne informacije o biljci i članci o različitim vrstama uzgoja.</p>
         </span>
-        <span class="px-2 mx-3 col-3 fs-5">
+              <span class="px-2 mx-3 col-3 fs-5">
           <h3 class="mb-4">
             3. Ne zaboravi
           </h3>
           <p>Podsjetnici za redovitu brigu i kalendari radova u vrtu.</p>
         </span>
+          </div>
+          <!-- Slike za objašnjeni proces -->
+          <div class="slike d-flex flex-row justify-content-center align-items-end mt-3 h-50">
+
+              <img src="assets/images/lp-pic1.svg" alt="Planting a garden">
+
+              <img class="pb-1 me-3" src="assets/images/lp-pic2.svg" alt="potted plants">
+
+              <img class="ms-4 mb-5 pb-3" src="assets/images/lp-pic3.svg" alt="Reminders">
+
+          </div>
       </div>
-      <!-- Slike za objašnjeni proces -->
-      <div class="slike d-flex flex-row justify-content-between fs-2 mt-3 h-50">
-        <div class="card h-25 w-25 ms-3 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/Seeding-bro.svg" alt="Planting a garden">
-        </div>
-        <div class="card h-25 w-25 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/potted plants-bro.svg" alt="potted plants">
-        </div>
-        <div class="card h-25 w-25 me-3 h-auto mt-3" aria-hidden="true" style="min-height: 200px;">
-          <img src="assets/images/Reminders-bro.svg" alt="Reminders">
-        </div>
-      </div>
-    </div>
-    <!-- Poziv na pridruživanje -->
-    <section class="my-5 py-5 d-flex flex-column justify-content-center align-items-center">
-      <h2 class="fs-1"><strong>Zvuči dobro?</strong></h2>
-      <p class="my-5 fs-4">Postani član UrbanEden zajednice!</p>
-      <button type="submit" name="registracija" class="btn btn-primary btn-success rounded-4 fs-4 px-4 py-3" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
-    </section>
+      <!-- Poziv na pridruživanje -->
+      <section class="my-5 py-5 d-flex flex-column justify-content-center align-items-center">
+          <h2 class="fs-1"><strong>Zvuči dobro?</strong></h2>
+          <p class="my-5 fs-4">Postani član UrbanEden zajednice!</p>
+          <button type="submit" name="registracija" class="btn btn-primary rounded-4 fs-4 px-4 py-3" data-bs-toggle="modal" data-bs-target="#RegisterExampleModal">Registriraj se</button>
+      </section>
     
 
   </main>
