@@ -122,6 +122,10 @@ if (isset($_POST["odjava"])) {
             $sql = "SELECT * FROM vrtovi WHERE id = $vrtId";
             $rows_gardens = mysqli_query($connected, $sql);
             $res = $rows_gardens->fetch_assoc();
+
+            $sql = "SELECT * FROM biljke_info ORDER BY id ASC";
+            $rows_plants = mysqli_query($connected, $sql);
+            $resPlant = $rows_plants->fetch_assoc();
             ?>
             <?php if ($res['layout'] == "4row") : ?>
                 <h2><?php echo $res['name'] ?></h2>
@@ -134,7 +138,7 @@ if (isset($_POST["odjava"])) {
                             <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                                 <div class="px-2" style="width: fit-content;">
                                     <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal">
-                                        <i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                        <img src="..\assets\vegetableIcons\<?php if ($res['biljka1'] != 'null'){echo $resPlant['ikonica_biljke'];} else {echo 'plusic';} ?>" alt="dodaj biljku"></a>
                                 </div>
                             </td>
                         </tr>
@@ -174,6 +178,10 @@ if (isset($_POST["odjava"])) {
             $sql = "SELECT * FROM vrtovi WHERE korisnik = '$korisnik' LIMIT 1";
             $rows_gardens = mysqli_query($connected, $sql);
             $res = $rows_gardens->fetch_assoc();
+
+            $sql = "SELECT * FROM biljke_info ORDER BY id ASC";
+            $rows_plants = mysqli_query($connected, $sql);
+            $resPlant = $rows_plants->fetch_assoc();
             if ($res) {
                 ?>
                 <?php if ($res['layout'] == "4row") : ?>
@@ -186,7 +194,7 @@ if (isset($_POST["odjava"])) {
                             <tr class="row px-4 py-2 d-flex justify-content-center h-25">
                                 <td class="bg-secondary-subtle m-2 p-2 d-inline-flex align-items-center justify-content-center text-center">
                                     <div class="px-2" style="width: fit-content;">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><i class="bi bi-plus-square fs-1 text-black"></i></a>
+                                        <a href="" data-bs-toggle="modal" data-bs-target="#addPlantModal"><img src="..\assets\vegetableIcons\<?php if ($res['biljka1'] != 'null'){echo $resPlant['ikonica_biljke'];} else {echo 'plusic';} ?>" alt="dodaj biljku"></a>
                                     </div>
                                 </td>
                             </tr>
