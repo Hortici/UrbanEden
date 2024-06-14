@@ -1,6 +1,5 @@
 # UrbanEden
 <br>
-<hr>
 <br>
 
 <!-- Opis -->
