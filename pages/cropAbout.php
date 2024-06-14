@@ -136,7 +136,7 @@ if (isset($_POST["odjava"])){
                                 <button class="btn btn-primary py-2 px-4">Sažetak</button>
                             </div>
                             <div class="col">
-                                <img src="../assets/vegetableIcons/<?php echo $row_plant['ikonica_biljke'] ?>" alt="picture of a blitva">
+                                <img src="../assets/images/<?php echo $row_plant['slikaOpis'] ?>" alt="picture of a blitva">
                             </div>
                         </div>
                     </div>
@@ -178,7 +178,7 @@ if (isset($_POST["odjava"])){
                     <!--Zdravlje-->
                     <div id="zdravlje" class="d-flex flex-column justify-content-center mt-4">
                         <h3>Lisne uši</h3>
-                        <p><?php echo $row_plant['zdravnje']; ?></p>
+                        <p><?php echo $row_plant['zdravlje']; ?></p>
                         <img src="../assets/images/usi-bolest.svg" alt="usi bolest">
                     </div>
                     <!--Berba-->
