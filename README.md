@@ -1,6 +1,6 @@
 # UrbanEden - tvoj vrtlarski pomoćnik
 
-UrbanEden je web aplikacija namijenjena vrtlarima početnicima. Nudi osnovne informacije, savjete i podsjetnike za brigu o biljci, uz prikaz vrta na gridu. Uzimajući u obzir korisnikovo iskustvo i uvjete uzgoja, aplikacija nudi selekciju biljaka koja bi mu odgovarala te ga vodi kroz kompletan proces uzgoja biljka koje odaberu od početka pa sve do kraja pomno bilježeći kompletan proces. 
+UrbanEden je web aplikacija namijenjena vrtlarima početnicima. Nudi osnovne informacije, savjete i podsjetnike za brigu o biljci, uz prikaz vrta na gridu. Uzimajući u obzir korisnikovo iskustvo i uvjete uzgoja, aplikacija nudi selekciju biljaka koja bi mu odgovarala te ga vodi kroz kompletan proces uzgoja biljka koje odaberu od početka pa sve do kraja pomno bilježeći kompletan proces. <br>
 Cilj aplikacije je dati korisnicima način da bez mnogo razmišljanja i minimalnim trudom sami uzgoje zdravu hranu u vlastitom vrtu ili na balkonu i time učiniti zdravu prehranu dostupnijom svima. 
 
 <!-- Problem -->
