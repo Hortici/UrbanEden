@@ -31,9 +31,5 @@ Figma, Illustrator
 
 ## Postignuća
 
-
 Aplikacija UrbanEden došla je do finala natjecanja TVZ MC2.
 
-<br>
-
-U izradi
