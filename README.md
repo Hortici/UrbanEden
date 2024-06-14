@@ -20,7 +20,7 @@ PHP, MySQL
 Figma, Illustrator
 
 ## Demo
-- 🚀️ [urbaneden.azurewebsites.net]([https://aimo.vercel.app/](https://urbaneden.azurewebsites.net/))
+- 🚀️ [urbaneden.azurewebsites.net](https://urbaneden.azurewebsites.net/)
 
 ## Showcase dizajna
 
