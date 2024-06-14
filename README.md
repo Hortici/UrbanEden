@@ -7,6 +7,11 @@ Cilj aplikacije je dati korisnicima način da bez mnogo razmišljanja i minimaln
 
 ## Tehnologije
 
+<div>
+  <img alt="php" src="https://img.shields.io/badge/PHP-blue?logo=php&color=%23AEB2D5" />
+</div>
+<br>
+
 1. Frontend:
 
 HTML, CSS, BOOTSTRAP, JAVASCRIPT
