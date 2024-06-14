@@ -12,7 +12,7 @@ Cilj aplikacije je dati korisnicima način da bez mnogo razmišljanja i minimaln
   <img alt="javascript" src="https://img.shields.io/badge/JAVASCRIPT-yellow?style=for-the-badge&logo=javascript&logoColor=black&color=%23f0db4f" />
   <img alt="bootstrap" src="https://img.shields.io/badge/BOOTSTRAP-blue?style=for-the-badge&logo=bootstrap&logoColor=white&color=%23563d7c" />
   <img alt="mysql" src="https://img.shields.io/badge/MYSQL-blue?style=for-the-badge&logo=mysql&logoColor=black" />
-  <img alt="figma" src="https://img.shields.io/badge/MYSQL-white?style=for-the-badge&logo=figma&logoColor=black" />
+  <img alt="figma" src="https://img.shields.io/badge/FIGMA-white?style=for-the-badge&logo=figma&logoColor=black" />
 </div>
 <br>
 
