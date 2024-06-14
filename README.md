@@ -1,7 +1,7 @@
 <p align="center">
 <img src="/assets/images/tomato.svg" alt="logo UrbanEden" width="80" height="80">
 </p>
-<p align="center" style="font-size: 40px;">UrbanEden</p>
+<p align="center" style="font-size: 80px;">UrbanEden</p>
 <br>
 <hr>
 <br>
