@@ -28,7 +28,14 @@ PHP, MySQL
 
 Figma, Illustrator
 
+##Showcase dizajna
+
+![image (1)](https://github.com/Hortici/UrbanEden/assets/62816746/38502051-f683-41c0-8c6f-1998840c8956)
+![image (2)](https://github.com/Hortici/UrbanEden/assets/62816746/81f0bd8b-f0dd-4f9f-a1dc-d87f073765ce)
+![image (3)](https://github.com/Hortici/UrbanEden/assets/62816746/948030ab-ae3f-42ee-bae3-cef5d02b46aa)
+
 ## Postignuća
+
 
 Aplikacija UrbanEden došla je do finala natjecanja TVZ MC2.
 
