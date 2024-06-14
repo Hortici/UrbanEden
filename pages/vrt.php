@@ -255,7 +255,7 @@ if (isset($_POST["odjava"])) {
                             try {
                                 require_once("connect.php");
                                 if (isset($connected)) {
-                                    $sql = "SELECT * FROM biljke_info ORDER BY id DESC LIMIT 3";
+                                    $sql = "SELECT * FROM biljke_info ORDER BY id ASC LIMIT 3";
                                     $rows_plants = mysqli_query($connected, $sql);
 
                                     foreach ($rows_plants as $row_plant) {
