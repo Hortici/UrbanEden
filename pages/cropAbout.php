@@ -136,7 +136,7 @@ if (isset($_POST["odjava"])){
                                 <button class="btn btn-primary py-2 px-4">Sažetak</button>
                             </div>
                             <div class="col">
-                                <img src="../assets/images/<?php echo $row_plant['slikaOpis'] ?>" alt="picture of a blitva " width="100%">
+                                <img style="min-width: 40%;" src="../assets/images/<?php echo $row_plant['slikaOpis'] ?>" alt="picture of a blitva " width="100%">
                             </div>
                         </div>
                     </div>
