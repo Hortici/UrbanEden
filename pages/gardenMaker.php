@@ -440,7 +440,6 @@ if (isset($_POST["odjava"])) {
                     /*Unos podatak nije bio uspješan*/
                     die("Unso vrta nije uspjeo");
                 }
-                mysqli_close($connected);
             }
         } catch (Exception $e) {
             echo $e->getMessage();
